@@ -12,7 +12,7 @@
     <title>Animal Arena</title>
   </head>
   <body>
-    <section class="startScreen hidden">
+    <section class="startScreen">
       <h1>Animal Arena</h1>
       <div class="container">
         <div class="menu">
@@ -25,8 +25,8 @@
         <div class="information"></div>
       </div>
     </section>
-    <section class="characterSelectScreen">
-      <h1>Animal Arena</h1>
+    <section class="characterSelectScreen hidden">
+      <h1 class="second-header">Animal Arena</h1>
       <div class="chosenCharacter"></div>
       <div class="grid">
         <div class="character-option-dog"></div>
@@ -37,15 +37,18 @@
       <button class="playGame">Play Game</button>
     </section>
     <section class="battle hidden">
-      <div class="player-life-bar">
-        <p class="characterName">Character Name</p>
-        <progress id="file" max="100" value="100"></progress>
-        <p class="player-hp">100</p>
-      </div>
-      <div class="cpu-life-bar">
-        <p class="characterName">Character Name</p>
-        <progress id="file" max="100" value="100"></progress>
-        <p class="cpu-hp">100</p>
+      <div class="life">
+        <div class="player-life-bar">
+          <p class="characterName">Character Name</p>
+          <progress id="file" max="100" value="100"></progress>
+          <p class="player-hp">100</p>
+        </div>
+        <h4>VS</h4>
+        <div class="cpu-life-bar">
+          <p class="characterName">Character Name</p>
+          <progress id="file" max="100" value="100"></progress>
+          <p class="cpu-hp">100</p>
+        </div>
       </div>
       <main>
         <div class="character-model"></div>
@@ -53,24 +56,34 @@
       </main>
       <div class="decisions">
         <h3>What will you do....</h3>
-        <div class="choice">
-          <ul class="choices">
-            <li class="attack">Attack</li>
-            <li class="item">Items</li>
-          </ul>
-        </div>
-        <div class="content">
-          <div class="attack-content">
-            <button class="attack-choice-one">Attack One</button>
-            <button class="attack-choice-two">Attack Two</button>
-            <button class="attack-choice-three">Attack Three</button>
-            <button class="attack-choice-four">Attack Four</button>
+        <div class="group">
+          <div class="choice">
+            <ul class="choices">
+              <li class="attack">Attack</li>
+              <li class="item">Items</li>
+            </ul>
           </div>
-          <div class="items">
-            <button class="item-choice-one">Item One</button>
-            <button class="item-choice-two">Item Two</button>
-            <button class="item-choice-three">Item Three</button>
-            <button class="item-choice-four">Item Four</button>
+          <div class="content">
+            <div class="attack-content">
+              <div class="set-one">
+                <p class="attack-choice-one">Attack One</p>
+                <p class="attack-choice-two">Attack Two</p>
+              </div>
+              <div class="set-two">
+                <p class="attack-choice-three">Attack Three</p>
+                <p class="attack-choice-four">Attack Four</p>
+              </div>
+            </div>
+            <div class="items hidden">
+              <div class="set-one">
+                <p class="item-choice-one">Item One</p>
+                <p class="item-choice-two">Item Two</p>
+              </div>
+              <div class="set-two">
+                <p class="item-choice-three">Item Three</p>
+                <p class="item-choice-four">Item Four</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

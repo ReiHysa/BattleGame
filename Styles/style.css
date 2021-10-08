@@ -38,6 +38,12 @@ section.startScreen ul li:hover {
 .information {
   width: 70%;
   background-color: rgb(225, 224, 224);
+  border-left: 2px solid darkgrey;
+  border-top: 2px solid darkgrey;
+}
+.menu {
+  border-top: 2px solid darkgrey;
+  width: 30%;
 }
 .container {
   display: flex;
@@ -47,7 +53,7 @@ section.startScreen ul li:hover {
 }
 section.characterSelectScreen {
   display: flex;
-  background-color: rgb(227, 227, 227);
+  background-color: black;
   color: black;
   flex-direction: column;
   align-items: center;
@@ -56,12 +62,183 @@ section.characterSelectScreen {
   border: 4px dashed black;
 }
 
+.second-header {
+  color: white;
+}
+
 .chosenCharacter {
+  border: 1px solid grey;
+  height: 30%;
+  width: 30%;
+  margin: 10px 10px;
 }
 
 .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 25%;
+  width: 80%;
 }
 
+.grid div {
+  border: 1px solid grey;
+  margin-bottom: 10px;
+}
+.grid div:hover {
+  border: 1px solid white;
+}
+
+button.playGame {
+  font-family: "VT323", monospace;
+  text-decoration: none;
+  background-color: lightgray;
+  position: absolute;
+  bottom: 230px;
+  border: none;
+  color: white;
+}
+
+button.active {
+  background-color: lightgray;
+}
+.active:hover {
+  color: red;
+}
+
+section.battle {
+  display: flex;
+  background-color: white;
+  color: black;
+  flex-direction: column;
+  align-items: center;
+  height: 45vh;
+  width: 420px;
+  border: 4px dashed black;
+}
+
+.life {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 15%;
+}
+progress {
+  margin: 0 5px;
+  border: none;
+  height: 7px;
+  position: relative;
+  bottom: 2px;
+}
+.player-life-bar {
+  border: 2px solid black;
+  background-color: rgb(227, 227, 227);
+}
+
+p.characterName {
+  text-align: center;
+}
+
+.cpu-life-bar {
+  border: 2px solid black;
+  background-color: rgb(227, 227, 227);
+}
+
+main {
+  border: 2px solid black;
+  width: 100%;
+  height: 45%;
+  display: flex;
+  justify-content: space-between;
+}
+.character-model {
+  border: 2px solid black;
+  width: 45%;
+  height: 100%;
+}
+.cpu-model {
+  border: 2px solid black;
+  width: 45%;
+  height: 100%;
+}
+
+.decisions {
+  background-color: rgb(227, 227, 227);
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+}
+h3 {
+  text-align: center;
+}
+
+.group {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  border-top: 2px solid darkgrey;
+}
+.choice {
+  width: 30%;
+  height: 100%;
+}
+.choice ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.choice ul li {
+  margin: 20px 0px;
+}
+.choice ul li:hover {
+  color: darkgrey;
+}
+
+.content {
+  width: 70%;
+  height: 100%;
+  background-color: rgb(196, 196, 196);
+  border-left: 2px solid darkgrey;
+}
+.attack-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.items {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.set-one {
+  height: 50%;
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.set-two {
+  height: 50%;
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.content p:hover {
+  color: white;
+}
+h4 {
+  position: relative;
+  top: 9px;
+  font-size: 2em;
+}
 section.hidden {
+  display: none;
+}
+.hidden {
   display: none;
 }
