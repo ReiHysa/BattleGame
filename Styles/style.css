@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "VT323", monospace;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+section.startScreen {
+  display: flex;
+  background-color: rgb(227, 227, 227);
+  color: black;
+  flex-direction: column;
+  align-items: center;
+  height: 45vh;
+  width: 420px;
+  border: 4px dashed black;
+}
+section h1 {
+  font-size: 3em;
+}
+section.startScreen ul {
+  list-style: none;
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+section.startScreen ul li:hover {
+  color: rgb(108, 107, 107);
+}
+.information {
+  width: 70%;
+  background-color: rgb(225, 224, 224);
+}
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: 100vh;
+}
+section.characterSelectScreen {
+  display: flex;
+  background-color: rgb(227, 227, 227);
+  color: black;
+  flex-direction: column;
+  align-items: center;
+  height: 45vh;
+  width: 420px;
+  border: 4px dashed black;
+}
+
+.chosenCharacter {
+}
+
+.grid {
+}
+
+section.hidden {
+  display: none;
+}

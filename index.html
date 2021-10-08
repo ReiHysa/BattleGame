@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./Styles/style.css" />
+    <title>Animal Arena</title>
+  </head>
+  <body>
+    <section class="startScreen hidden">
+      <h1>Animal Arena</h1>
+      <div class="container">
+        <div class="menu">
+          <ul>
+            <li>Start Game</li>
+            <li>How to play</li>
+            <li>About</li>
+          </ul>
+        </div>
+        <div class="information"></div>
+      </div>
+    </section>
+    <section class="characterSelectScreen">
+      <h1>Animal Arena</h1>
+      <div class="chosenCharacter"></div>
+      <div class="grid">
+        <div class="character-option-dog"></div>
+        <div class="character-options-cat"></div>
+        <div class="character-options-snake"></div>
+        <div class="character-options-turtle"></div>
+      </div>
+      <button class="playGame">Play Game</button>
+    </section>
+    <section class="battle hidden">
+      <div class="player-life-bar">
+        <p class="characterName">Character Name</p>
+        <progress id="file" max="100" value="100"></progress>
+        <p class="player-hp">100</p>
+      </div>
+      <div class="cpu-life-bar">
+        <p class="characterName">Character Name</p>
+        <progress id="file" max="100" value="100"></progress>
+        <p class="cpu-hp">100</p>
+      </div>
+      <main>
+        <div class="character-model"></div>
+        <div class="cpu-model"></div>
+      </main>
+      <div class="decisions">
+        <h3>What will you do....</h3>
+        <div class="choice">
+          <ul class="choices">
+            <li class="attack">Attack</li>
+            <li class="item">Items</li>
+          </ul>
+        </div>
+        <div class="content">
+          <div class="attack-content">
+            <button class="attack-choice-one">Attack One</button>
+            <button class="attack-choice-two">Attack Two</button>
+            <button class="attack-choice-three">Attack Three</button>
+            <button class="attack-choice-four">Attack Four</button>
+          </div>
+          <div class="items">
+            <button class="item-choice-one">Item One</button>
+            <button class="item-choice-two">Item Two</button>
+            <button class="item-choice-three">Item Three</button>
+            <button class="item-choice-four">Item Four</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
