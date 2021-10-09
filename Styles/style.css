@@ -53,8 +53,7 @@ section.startScreen ul li:hover {
 }
 section.characterSelectScreen {
   display: flex;
-  background-color: black;
-  color: black;
+  background-color: rgb(242, 242, 242);
   flex-direction: column;
   align-items: center;
   height: 45vh;
@@ -63,11 +62,11 @@ section.characterSelectScreen {
 }
 
 .second-header {
-  color: white;
+  color: black;
 }
 
 .chosenCharacter {
-  border: 1px solid grey;
+  border: 2px solid darkgrey;
   height: 30%;
   width: 30%;
   margin: 10px 10px;
@@ -81,25 +80,26 @@ section.characterSelectScreen {
 }
 
 .grid div {
-  border: 1px solid grey;
+  border: 1px solid black;
   margin-bottom: 10px;
 }
 .grid div:hover {
-  border: 1px solid white;
+  border: 3px solid darkgrey;
 }
 
 button.playGame {
   font-family: "VT323", monospace;
   text-decoration: none;
-  background-color: lightgray;
+  background-color: rgb(50, 49, 49);
   position: absolute;
   bottom: 230px;
   border: none;
-  color: white;
+  color: rgb(109, 109, 109);
 }
 
 button.active {
-  background-color: lightgray;
+  background-color: darkgrey;
+  color: white;
 }
 .active:hover {
   color: red;
