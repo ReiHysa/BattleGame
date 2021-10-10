@@ -123,3 +123,34 @@ What these two functions do is add content to the information div based on what 
 Summary:
 
 I Did not find much things difficult today as I mainly played around with the aesthetics of the design. My psuedocode has allowed me to plan the wireframes and ideas strongly and come to this project prepared to create a good, playable game! Some of the CSS may need touching up along the way but at this moment of time I feel as if the code made matches the original aestetic that I thought of when making the game. With the javascript for the front page, I could add the functions of arrow keys and enter to make the game more appealing and give it the classical gameboy feel to it.
+
+Day 3:
+
+I took a day rest from coding where I planned potential different routes to take to improve my current code to add to the overall aesthetic. My current css added a hover element which changed colour.
+However, I felt like this did not match the overall aesthetic of the original gameboy and decided to add a margin to move the image down and add an arrow. To give a select feeling to it.
+
+I did this by adding:
+
+    <aside class= "arrow-down-dog opacity"></aside>
+
+    <aside class= "arrow-down-cat opacity"></aside>
+
+    <aside class= "arrow-down-snake opacity"></aside>
+
+    <aside class= "arrow-down-turtle opacity"></aside>
+
+Using Javascript, I would toggle the opacity to show the specific arrows when hovering, also adding a margin to the top which in turn would push the images down.
+
+    function dogHover(){
+    arrow[0].classList.toggle('opacity')
+    chosenCharacter.classList.toggle('character-option-dog')
+    chosenCharacterText.textContent = 'Dog'
+    }
+
+    function dogHoverNo(){
+    arrow[0].classList.toggle('opacity')
+    chosenCharacter.classList.toggle('character-option-dog')
+    chosenCharacterText.textContent = ''
+    }
+
+I added these functions for every type of class which would replace the content box with the respective character, and also change the text of the box. It would also toggle the opacity, showing the arrow element.
