@@ -12,7 +12,7 @@
     <title>Animal Arena</title>
   </head>
   <body>
-    <section class="startScreen">
+    <section class="startScreen hidden">
       <h1>Animal Arena</h1>
       <div class="container">
         <div class="menu">
@@ -25,14 +25,18 @@
         <div class="information"></div>
       </div>
     </section>
-    <section class="characterSelectScreen hidden">
+    <section class="characterSelectScreen">
       <h1 class="second-header">Animal Arena</h1>
-      <div class="chosenCharacter"></div>
+      <div class="chosenCharacter"><p></p></div>
       <div class="grid">
+        <aside class="arrow-down-dog opacity"></aside>
         <div class="character-option-dog"></div>
-        <div class="character-options-cat"></div>
-        <div class="character-options-snake"></div>
-        <div class="character-options-turtle"></div>
+        <aside class="arrow-down-cat opacity"></aside>
+        <div class="character-option-cat"></div>
+        <aside class="arrow-down-snake opacity"></aside>
+        <div class="character-option-snake"></div>
+        <aside class="arrow-down-turtle opacity"></aside>
+        <div class="character-option-turtle"></div>
       </div>
       <button class="playGame">Play Game</button>
     </section>
@@ -89,5 +93,6 @@
       </div>
     </section>
     <script src="./script/script.js"></script>
+    <script src="./script/characterSelect.js"></script>
   </body>
 </html>

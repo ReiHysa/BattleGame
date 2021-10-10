@@ -53,7 +53,7 @@ section.startScreen ul li:hover {
 }
 section.characterSelectScreen {
   display: flex;
-  background-color: rgb(242, 242, 242);
+  background-color: lightgray;
   flex-direction: column;
   align-items: center;
   height: 45vh;
@@ -73,38 +73,94 @@ section.characterSelectScreen {
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
   height: 25%;
-  width: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .grid div {
   border: 1px solid black;
   margin-bottom: 10px;
+  width: 12%;
+  height: 100%;
 }
+
 .grid div:hover {
-  border: 3px solid darkgrey;
+  margin-top: 20px;
+}
+
+.character-option-dog {
+  background-image: url("https://img.pokemondb.net/sprites/red-blue/normal/blastoise.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.character-option-cat {
+  background-image: url("https://img.pokemondb.net/sprites/red-blue/normal/charizard.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.character-option-turtle {
+  background-image: url("https://img.pokemondb.net/sprites/red-blue/normal/snorlax.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.character-option-snake {
+  background-image: url("https://img.pokemondb.net/sprites/red-blue/normal/arbok.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.arrow-down-cat {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid black;
+  position: relative;
+  left: 50px;
+}
+.arrow-down-dog {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid black;
+  position: relative;
+  left: 50px;
+}
+.arrow-down-snake {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid black;
+  position: relative;
+  left: 50px;
+}
+.arrow-down-turtle {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid black;
+  position: relative;
+  left: 50px;
 }
 
 button.playGame {
   font-family: "VT323", monospace;
   text-decoration: none;
-  background-color: rgb(50, 49, 49);
+  background-color: darkgray;
   position: absolute;
-  bottom: 230px;
+  bottom: 210px;
   border: none;
-  color: rgb(109, 109, 109);
-}
-
-button.active {
-  background-color: darkgrey;
   color: white;
+  border: 1px solid black;
 }
-.active:hover {
-  color: red;
+button.playGame:hover {
+  background-color: rgb(213, 213, 213);
+  border: 1px solid black;
 }
-
 section.battle {
   display: flex;
   background-color: white;
@@ -241,4 +297,10 @@ section.hidden {
 }
 .hidden {
   display: none;
+}
+.opacity {
+  opacity: 0;
+}
+.chosenCharacter p {
+  text-align: center;
 }
