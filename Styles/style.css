@@ -33,8 +33,28 @@ section.startScreen ul {
 }
 
 section.startScreen ul li:hover {
-  color: rgb(108, 107, 107);
+  margin-left: 8px;
 }
+
+.arrows {
+  display: flex;
+  height: 100%;
+  position: absolute;
+  width: 30%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid black;
+}
+
 .information {
   width: 70%;
   background-color: rgb(225, 224, 224);
@@ -44,6 +64,7 @@ section.startScreen ul li:hover {
 .menu {
   border-top: 2px solid darkgrey;
   width: 30%;
+  position: relative;
 }
 .container {
   display: flex;

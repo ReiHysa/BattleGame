@@ -14,7 +14,26 @@ const attackClicked = document.querySelector('.choices .attack')
 const itemClicked = document.querySelector('.choices .item')
 const ending = document.querySelector('.ending')
 const endingH2 = document.querySelector('.ending h2')
+const arrowRight = document.querySelectorAll('.arrows div')
+const mainList = document.querySelectorAll('.main-menu li')
 
+
+function opacity() {
+    arrowRight[0].classList.toggle('opacity')
+}
+function opacityTwo() {
+    arrowRight[1].classList.toggle('opacity')
+}
+function opacityThree() {
+    arrowRight[2].classList.toggle('opacity')
+}
+
+mainList[0].addEventListener('mouseover', opacity)
+mainList[0].addEventListener('mouseout', opacity)
+mainList[1].addEventListener('mouseover', opacityTwo)
+mainList[1].addEventListener('mouseout', opacityTwo)
+mainList[2].addEventListener('mouseover', opacityThree)
+mainList[2].addEventListener('mouseout', opacityThree)
 
 
 function attackHidden(){
