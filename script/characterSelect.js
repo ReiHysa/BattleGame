@@ -3,6 +3,13 @@ const chosenCharacterText = document.querySelector('.chosenCharacter p')
 const grid = document.querySelectorAll('.grid div')
 const arrow = document.querySelectorAll('aside')
 const battleScreen = document.querySelector('.battle')
+const playerModel = document.querySelector('.character-model')
+const computerModel = document.querySelector('.cpu-model')
+const characterName = document.querySelector('.characterName')
+const computerName = document.querySelector('.CpuName')
+const attackMoves = document.querySelectorAll('.attack-content p')
+
+const baseDamage = [10, 13, 12, 20]
 
 
 function dogHover(){
@@ -101,53 +108,90 @@ const snake = new Pet(2, 1.2, 100, 1.5)
 const turtle = new Pet(1.2, 2, 100, 1)
 
 function playGame(){
-let i = Math.floor(Math.random() * grid.length)
-console.log(i)
-if(i === 0){
-    cpuPick = dog
-} else if(i === 1){
-    cpuPick = cat
-} else if(i === 2){
-    cpuPick = snake
-} else if(i == 3){
-    cpuPick = turtle
-}
-characterSelectionScreen.classList.add('hidden')
-battleScreen.classList.remove('hidden')
+    let i = Math.floor(Math.random() * grid.length)
+    console.log(i)
+    if(i === 0){
+        cpuPick = dog
+        console.log(cpuPick)
+        computerModel.classList.add('character-option-dog') 
+        computerName.textContent = 'dog'
+    }else if(i === 1){
+        let cpuPick = cat
+        console.log(cpuPick)
+        computerModel.classList.add('character-option-cat') 
+        computerName.textContent = 'cat'
+    } else if(i === 2){
+        let cpuPick = snake
+        console.log(cpuPick)
+        computerModel.classList.add('character-option-snake') 
+        computerName.textContent = 'snake'
+    } else if(i == 3){
+        let cpuPick = turtle
+        console.log(cpuPick)
+        computerModel.classList.add('character-option-turtle') 
+        computerName.textContent = 'turtle'
+    }
+    characterSelectionScreen.classList.add('hidden')
+    battleScreen.classList.remove('hidden')
+    if(characterPicked === dog){
+        
+        playerModel.classList.add('character-option-dog') 
+        characterName.textContent = 'dog'
+    } else if(characterPicked === cat){
+        
+        playerModel.classList.add('character-option-cat') 
+        characterName.textContent = 'cat'
+    } else if(characterPicked === snake){
+        
+        playerModel.classList.add('character-option-snake') 
+        characterName.textContent = 'snake'
+    } else if(characterPicked === turtle){
+        
+        playerModel.classList.add('character-option-turtle') 
+        characterName.textContent = 'turtle'
+    }
 
 
-
-
-
-
-
-
-}
+    
+    }
 
 function dogSelected(){
     characterPicked = dog
     console.log(characterPicked)
-    chosenCharacterText.textContent = 'You chose Dog!'
+    attackMoves[0].textContent = 'Bite'
+    attackMoves[1].textContent = 'Dig'
+    attackMoves[2].textContent = 'Roll'
+    attackMoves[3].textContent = 'Lick'
     playGame()
 }
 function catSelected(){
     characterPicked = cat
     console.log(characterPicked)
-    chosenCharacterText.textContent = 'You chose Cat!'
+    attackMoves[0].textContent = 'Bite'
+    attackMoves[1].textContent = 'Scratch'
+    attackMoves[2].textContent = 'Catch'
+    attackMoves[3].textContent = 'Purr'
     playGame()
 }
 function snakeSelected(){
     characterPicked = snake
     console.log(characterPicked)
-    chosenCharacterText.textContent = 'You chose Snake!'
+    attackMoves[0].textContent = 'Bite'
+    attackMoves[1].textContent = 'Venom'
+    attackMoves[2].textContent = 'Coil'
+    attackMoves[3].textContent = 'Fangs'
     playGame()
 }
 function turtleSelected(){
     characterPicked = turtle
     console.log(characterPicked)
-    chosenCharacterText.textContent = 'You chose Turtle!'
+    attackMoves[0].textContent = 'Bite'
+    attackMoves[1].textContent = 'Shell Smash'
+    attackMoves[2].textContent = 'HeadButt'
+    attackMoves[3].textContent = 'Rapid Spin'
     playGame()
 }
+
 
 
 

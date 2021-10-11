@@ -6,6 +6,7 @@ const characterSelectionScreen = document.querySelector('.characterSelectScreen'
 const information = document.querySelector('.information')
 
 
+
 function characterSelectScreen() { 
     startScreen.classList.add('hidden')
     characterSelectionScreen.classList.remove('hidden')
