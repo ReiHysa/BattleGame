@@ -11,6 +11,11 @@ const attackMoves = document.querySelectorAll('.attack-content p')
 
 const baseDamage = [10, 13, 12, 20]
 
+let playerHealth = 100
+playerLifeBar.setAttribute('value', playerHealth)
+let computerHealth = 100
+computerLifeBar.setAttribute('value', computerHealth)
+
 
 function dogHover(){
     arrow[0].classList.toggle('opacity')
@@ -116,17 +121,17 @@ function playGame(){
         computerModel.classList.add('character-option-dog') 
         computerName.textContent = 'dog'
     }else if(i === 1){
-        let cpuPick = cat
+        cpuPick = cat
         console.log(cpuPick)
         computerModel.classList.add('character-option-cat') 
         computerName.textContent = 'cat'
     } else if(i === 2){
-        let cpuPick = snake
+        cpuPick = snake
         console.log(cpuPick)
         computerModel.classList.add('character-option-snake') 
         computerName.textContent = 'snake'
     } else if(i == 3){
-        let cpuPick = turtle
+        cpuPick = turtle
         console.log(cpuPick)
         computerModel.classList.add('character-option-turtle') 
         computerName.textContent = 'turtle'
@@ -150,6 +155,180 @@ function playGame(){
         playerModel.classList.add('character-option-turtle') 
         characterName.textContent = 'turtle'
     }
+    function playerDoesDamageOne() {
+        let playerdamage = baseDamage[0] * characterPicked.attack/ cpuPick.defence
+        computerHealth -= playerdamage
+        computerLifeBar.setAttribute('value', computerHealth)
+    }
+    function playerDoesDamageTwo() {
+        let playerdamage = baseDamage[1] * characterPicked.attack/ cpuPick.defence
+        computerHealth -= playerdamage
+        computerLifeBar.setAttribute('value', computerHealth)
+    }
+    function playerDoesDamageThree() {
+        let playerdamage = baseDamage[2] * characterPicked.attack/ cpuPick.defence
+        computerHealth -= playerdamage
+        computerLifeBar.setAttribute('value', computerHealth)
+    }
+    function playerDoesDamageFour() {
+        let playerdamage = baseDamage[3] * characterPicked.attack/ cpuPick.defence
+        computerHealth -= playerdamage
+        computerLifeBar.setAttribute('value', computerHealth)
+    }
+    function computerDoesDamage() {
+        let d = Math.floor(Math.random() * 4)
+        let computerDamage = baseDamage[d] * cpuPick.attack / characterPicked.defence
+        playerHealth -= computerDamage
+        playerLifeBar.setAttribute('value', playerHealth)
+    }
+    function gameEndWinner(){
+        console.log('YOU WON')
+    }
+    function gameEndLoser(){
+        console.log('YOU LOST')
+    }
+
+    function speedCheckOne() {
+        if(characterPicked.speed > cpuPick.speed){
+            playerDoesDamageOne()
+            if(computerHealth <= 0){
+                gameEndWinner()
+            } else {
+                computerDoesDamage()
+            }
+        } else if(characterPicked.speed < cpuPick.speed){
+            computerDoesDamage()
+            if(playerHealth <= 0){
+                gameEndLoser()
+            } else {
+                playerDoesDamageOne()
+            }
+        }else if(characterPicked.speed === cpuPick.speed){
+            let j = Math.floor(Math.random)
+            if(j < 0.5){
+                playerDoesDamageOne()
+                if(computerHealth <= 0){
+                    gameEndWinner()
+                }else {
+                    computerDoesDamage()
+                }
+            } else if(j => 0.5){
+                computerDoesDamage()
+                if(playerHealth <= 0){
+                    gameEndLoser()
+                } else {
+                    playerDoesDamageOne()
+                }
+            }
+        }
+    }
+    function speedCheckTwo() {
+        if(characterPicked.speed > cpuPick.speed){
+            playerDoesDamageTwo()
+            if(computerHealth <= 0){
+                gameEndWinner()
+            } else {
+                computerDoesDamage()
+            }
+        } else if(characterPicked.speed < cpuPick.speed){
+            computerDoesDamage()
+            if(playerHealth <= 0){
+                gameEndLoser()
+            } else {
+                playerDoesDamageTwo()
+            }
+        }else if(characterPicked.speed === cpuPick.speed){
+            let j = Math.floor(Math.random)
+            if(j < 0.5){
+                playerDoesDamageTwo()
+                if(computerHealth <= 0){
+                    gameEndWinner()
+                }else {
+                    computerDoesDamage()
+                }
+            } else if(j => 0.5){
+                computerDoesDamage()
+                if(playerHealth <= 0){
+                    gameEndLoser()
+                } else {
+                    playerDoesDamageTwo()
+                }
+            }
+        }
+    }
+    function speedCheckThree() {
+        if(characterPicked.speed > cpuPick.speed){
+            playerDoesDamageThree()
+            if(computerHealth <= 0){
+                gameEndWinner()
+            } else {
+                computerDoesDamage()
+            }
+        } else if(characterPicked.speed < cpuPick.speed){
+            computerDoesDamage()
+            if(playerHealth <= 0){
+                gameEndLoser()
+            } else {
+                playerDoesDamageThree()
+            }
+        }else if(characterPicked.speed === cpuPick.speed){
+            let j = Math.floor(Math.random)
+            if(j < 0.5){
+                playerDoesDamageThree()
+                if(computerHealth <= 0){
+                    gameEndWinner()
+                }else {
+                    computerDoesDamage()
+                }
+            } else if(j => 0.5){
+                computerDoesDamage()
+                if(playerHealth <= 0){
+                    gameEndLoser()
+                } else {
+                    playerDoesDamageThree()
+                }
+            }
+        }
+    }
+    function speedCheckFour() {
+        if(characterPicked.speed > cpuPick.speed){
+            playerDoesDamageFour()
+            if(computerHealth <= 0){
+                gameEndWinner()
+            } else {
+                computerDoesDamage()
+            }
+        } else if(characterPicked.speed < cpuPick.speed){
+            computerDoesDamage()
+            if(playerHealth <= 0){
+                gameEndLoser()
+            } else {
+                playerDoesDamageFour()
+            }
+        }else if(characterPicked.speed === cpuPick.speed){
+            let j = Math.floor(Math.random)
+            if(j < 0.5){
+                playerDoesDamageFour()
+                if(computerHealth <= 0){
+                    gameEndWinner()
+                }else {
+                    computerDoesDamage()
+                }
+            } else if(j => 0.5){
+                computerDoesDamage()
+                if(playerHealth <= 0){
+                    gameEndLoser()
+                } else {
+                    playerDoesDamageFour()
+                }
+            }
+        }
+    }
+
+    attackMoves[0].addEventListener('click', speedCheckOne)
+    attackMoves[1].addEventListener('click', speedCheckTwo)
+    attackMoves[2].addEventListener('click', speedCheckThree)
+    attackMoves[3].addEventListener('click', speedCheckFour)
 
 
     

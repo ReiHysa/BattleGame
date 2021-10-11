@@ -4,8 +4,10 @@ const about = document.querySelector('.about')
 const startScreen = document.querySelector('.startScreen')
 const characterSelectionScreen = document.querySelector('.characterSelectScreen')
 const information = document.querySelector('.information')
-
-
+let computerLifeBar = document.querySelector('#computer-life')
+let playerLifeBar = document.querySelector('#player-life')
+let playerlifeValue = document.querySelector('.player-hp')
+let computerlifeValue = document.querySelector('.cpu-hp')
 
 function characterSelectScreen() { 
     startScreen.classList.add('hidden')
