@@ -17,6 +17,7 @@ let computerHealth = 100
 computerLifeBar.setAttribute('value', computerHealth)
 
 
+
 function dogHover(){
     arrow[0].classList.toggle('opacity')
     if (chosenCharacter.classList.contains('character-option-cat')){
@@ -157,27 +158,51 @@ function playGame(){
     }
     function playerDoesDamageOne() {
         let playerdamage = baseDamage[0] * characterPicked.attack/ cpuPick.defence
-        computerHealth -= playerdamage
-        computerLifeBar.setAttribute('value', computerHealth)
-        computerlifeValue.textContent = computerHealth
+        let miss = Math.floor(Math.random())
+        if (miss < 0.9) {
+            computerHealth -= playerdamage
+            computerLifeBar.setAttribute('value', computerHealth)
+            computerlifeValue.textContent = computerHealth
+            //Say you landed the hit and dealt specific amount of damage
+        } else {
+            return
+        }
     }
     function playerDoesDamageTwo() {
         let playerdamage = baseDamage[1] * characterPicked.attack/ cpuPick.defence
-        computerHealth -= playerdamage
-        computerLifeBar.setAttribute('value', computerHealth)
-        computerlifeValue.textContent = Math.floor(computerHealth)
+        miss = Math.Floor(Math.random())
+        if (miss < 0.8){
+            computerHealth -= playerdamage
+            computerLifeBar.setAttribute('value', computerHealth)
+            computerlifeValue.textContent = Math.floor(computerHealth)
+
+        } else{
+            return
+        }
     }
     function playerDoesDamageThree() {
         let playerdamage = baseDamage[2] * characterPicked.attack/ cpuPick.defence
-        computerHealth -= playerdamage
-        computerLifeBar.setAttribute('value', computerHealth)
-        computerlifeValue.textContent = Math.floor(computerHealth)
+        miss = Math.Floor(Math.random())
+        if (miss < 0.75){
+            computerHealth -= playerdamage
+            computerLifeBar.setAttribute('value', computerHealth)
+            computerlifeValue.textContent = Math.floor(computerHealth)
+
+        } else{
+            return
+        }
     }
     function playerDoesDamageFour() {
         let playerdamage = baseDamage[3] * characterPicked.attack/ cpuPick.defence
-        computerHealth -= playerdamage
-        computerLifeBar.setAttribute('value', computerHealth)
-        computerlifeValue.textContent = Math.floor(computerHealth)
+        miss = Math.Floor(Math.random())
+        if (miss < 0.6){
+            computerHealth -= playerdamage
+            computerLifeBar.setAttribute('value', computerHealth)
+            computerlifeValue.textContent = Math.floor(computerHealth)
+
+        } else{
+            return
+        }
     }
     function computerDoesDamage() {
         let d = Math.floor(Math.random() * 4)
@@ -200,6 +225,7 @@ function playGame(){
         endingH2.textContent = 'YOU LOST! CLICK TO GO AGAIN!'
         endingH2.addEventListener('click', reloadPage)
     }
+    
 
     function speedCheckOne() {
         if(characterPicked.speed > cpuPick.speed){
@@ -386,11 +412,35 @@ function playGame(){
             }
         }
     }
+ 
 
     attackMoves[0].addEventListener('click', speedCheckOne)
     attackMoves[1].addEventListener('click', speedCheckTwo)
     attackMoves[2].addEventListener('click', speedCheckThree)
     attackMoves[3].addEventListener('click', speedCheckFour)
+
+    function itemOne() {
+        playerHealth += 12
+        computerDoesDamage()
+    }
+    function itemTwo() {
+        characterPicked.speed += 0.2
+        computerDoesDamage()
+    }
+    function itemThree() {
+        characterPicked.defence += 0.2
+        computerDoesDamage()
+    }
+    
+    function itemFour() {
+        characterPicked.attack += 0.2
+        computerDoesDamage()
+    }
+
+    itemChoices[0].addEventListener('click', itemOne)
+    itemChoices[1].addEventListener('click', itemTwo)
+    itemChoices[2].addEventListener('click', itemThree)
+    itemChoices[3].addEventListener('click', itemFour)
 
 
     

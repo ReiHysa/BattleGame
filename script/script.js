@@ -10,12 +10,15 @@ let playerlifeValue = document.querySelector('.player-hp')
 let computerlifeValue = document.querySelector('.cpu-hp')
 const attackChoice = document.querySelector('.attack-content')
 const itemChoice = document.querySelector('.items')
+const itemChoices = document.querySelectorAll('.items p')
 const attackClicked = document.querySelector('.choices .attack')
 const itemClicked = document.querySelector('.choices .item')
 const ending = document.querySelector('.ending')
 const endingH2 = document.querySelector('.ending h2')
 const arrowRight = document.querySelectorAll('.arrows div')
 const mainList = document.querySelectorAll('.main-menu li')
+
+
 
 
 function opacity() {
