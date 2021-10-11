@@ -156,6 +156,7 @@ section.battle {
   height: 45vh;
   width: 420px;
   border: 4px dashed black;
+  position: relative;
 }
 
 .life {
@@ -297,6 +298,22 @@ h4 {
 section.hidden {
   display: none;
 }
+.ending {
+  background-color: darkgray;
+  position: absolute;
+  top: 60%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ending h2:hover {
+  color: white;
+}
+
 .hidden {
   display: none;
 }

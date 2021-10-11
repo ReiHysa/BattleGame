@@ -8,6 +8,34 @@ let computerLifeBar = document.querySelector('#computer-life')
 let playerLifeBar = document.querySelector('#player-life')
 let playerlifeValue = document.querySelector('.player-hp')
 let computerlifeValue = document.querySelector('.cpu-hp')
+const attackChoice = document.querySelector('.attack-content')
+const itemChoice = document.querySelector('.items')
+const attackClicked = document.querySelector('.choices .attack')
+const itemClicked = document.querySelector('.choices .item')
+const ending = document.querySelector('.ending')
+const endingH2 = document.querySelector('.ending h2')
+
+
+
+function attackHidden(){
+    if(!itemChoice.classList.contains('hidden')){
+        itemChoice.classList.add('hidden')
+    }
+    attackChoice.classList.toggle('hidden')
+console.log('clicked')
+}
+function itemHidden(){
+    if(!attackChoice.classList.contains('hidden')){
+        attackChoice.classList.add('hidden')
+    }
+    itemChoice.classList.toggle('hidden')
+
+}
+
+attackClicked.addEventListener('click', attackHidden)
+itemClicked.addEventListener('click', itemHidden)
+
+
 
 function characterSelectScreen() { 
     startScreen.classList.add('hidden')

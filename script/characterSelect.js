@@ -159,33 +159,46 @@ function playGame(){
         let playerdamage = baseDamage[0] * characterPicked.attack/ cpuPick.defence
         computerHealth -= playerdamage
         computerLifeBar.setAttribute('value', computerHealth)
+        computerlifeValue.textContent = computerHealth
     }
     function playerDoesDamageTwo() {
         let playerdamage = baseDamage[1] * characterPicked.attack/ cpuPick.defence
         computerHealth -= playerdamage
         computerLifeBar.setAttribute('value', computerHealth)
+        computerlifeValue.textContent = Math.floor(computerHealth)
     }
     function playerDoesDamageThree() {
         let playerdamage = baseDamage[2] * characterPicked.attack/ cpuPick.defence
         computerHealth -= playerdamage
         computerLifeBar.setAttribute('value', computerHealth)
+        computerlifeValue.textContent = Math.floor(computerHealth)
     }
     function playerDoesDamageFour() {
         let playerdamage = baseDamage[3] * characterPicked.attack/ cpuPick.defence
         computerHealth -= playerdamage
         computerLifeBar.setAttribute('value', computerHealth)
+        computerlifeValue.textContent = Math.floor(computerHealth)
     }
     function computerDoesDamage() {
         let d = Math.floor(Math.random() * 4)
         let computerDamage = baseDamage[d] * cpuPick.attack / characterPicked.defence
         playerHealth -= computerDamage
         playerLifeBar.setAttribute('value', playerHealth)
+        playerlifeValue.textContent = Math.floor(playerHealth)
+    }
+    function reloadPage(){
+        location.reload()
     }
     function gameEndWinner(){
-        console.log('YOU WON')
+       ending.classList.toggle('hidden')
+       endingH2.textContent = 'YOU WON! CLICK TO GO AGAIN!'
+       endingH2.addEventListener('click', reloadPage)
+       
     }
     function gameEndLoser(){
-        console.log('YOU LOST')
+        ending.classList.toggle('hidden')
+        endingH2.textContent = 'YOU LOST! CLICK TO GO AGAIN!'
+        endingH2.addEventListener('click', reloadPage)
     }
 
     function speedCheckOne() {
@@ -195,6 +208,9 @@ function playGame(){
                 gameEndWinner()
             } else {
                 computerDoesDamage()
+                if(playerHealth <= 0){
+                    gameEndLoser()
+                }
             }
         } else if(characterPicked.speed < cpuPick.speed){
             computerDoesDamage()
@@ -202,6 +218,9 @@ function playGame(){
                 gameEndLoser()
             } else {
                 playerDoesDamageOne()
+                if(computerHealth <= 0){
+                    gameEndWinner()
+                }
             }
         }else if(characterPicked.speed === cpuPick.speed){
             let j = Math.floor(Math.random)
@@ -211,6 +230,9 @@ function playGame(){
                     gameEndWinner()
                 }else {
                     computerDoesDamage()
+                    if(playerHealth <= 0){
+                        gameEndLoser()
+                    }
                 }
             } else if(j => 0.5){
                 computerDoesDamage()
@@ -218,6 +240,9 @@ function playGame(){
                     gameEndLoser()
                 } else {
                     playerDoesDamageOne()
+                    if(computerHealth <= 0){
+                        gameEndWinner()
+                    }
                 }
             }
         }
@@ -229,6 +254,9 @@ function playGame(){
                 gameEndWinner()
             } else {
                 computerDoesDamage()
+                if(playerHealth <= 0){
+                    gameEndLoser()
+                }
             }
         } else if(characterPicked.speed < cpuPick.speed){
             computerDoesDamage()
@@ -236,6 +264,9 @@ function playGame(){
                 gameEndLoser()
             } else {
                 playerDoesDamageTwo()
+                if(computerHealth <= 0){
+                    gameEndWinner()
+                }
             }
         }else if(characterPicked.speed === cpuPick.speed){
             let j = Math.floor(Math.random)
@@ -245,6 +276,9 @@ function playGame(){
                     gameEndWinner()
                 }else {
                     computerDoesDamage()
+                    if(playerHealth <= 0){
+                        gameEndLoser()
+                    }
                 }
             } else if(j => 0.5){
                 computerDoesDamage()
@@ -252,6 +286,9 @@ function playGame(){
                     gameEndLoser()
                 } else {
                     playerDoesDamageTwo()
+                    if(computerHealth <= 0){
+                        gameEndWinner()
+                    }
                 }
             }
         }
@@ -263,6 +300,9 @@ function playGame(){
                 gameEndWinner()
             } else {
                 computerDoesDamage()
+                if(playerHealth <= 0){
+                    gameEndLoser()
+                }
             }
         } else if(characterPicked.speed < cpuPick.speed){
             computerDoesDamage()
@@ -270,15 +310,22 @@ function playGame(){
                 gameEndLoser()
             } else {
                 playerDoesDamageThree()
+                if(computerHealth <= 0){
+                    gameEndWinner()
+                }
             }
         }else if(characterPicked.speed === cpuPick.speed){
             let j = Math.floor(Math.random)
+
             if(j < 0.5){
                 playerDoesDamageThree()
                 if(computerHealth <= 0){
                     gameEndWinner()
                 }else {
                     computerDoesDamage()
+                    if(playerHealth <= 0){
+                        gameEndLoser()
+                    }
                 }
             } else if(j => 0.5){
                 computerDoesDamage()
@@ -286,6 +333,9 @@ function playGame(){
                     gameEndLoser()
                 } else {
                     playerDoesDamageThree()
+                    if(computerHealth <= 0){
+                        gameEndWinner()
+                    }
                 }
             }
         }
@@ -297,6 +347,9 @@ function playGame(){
                 gameEndWinner()
             } else {
                 computerDoesDamage()
+                if(playerHealth <= 0){
+                    gameEndLoser()
+                }
             }
         } else if(characterPicked.speed < cpuPick.speed){
             computerDoesDamage()
@@ -304,15 +357,21 @@ function playGame(){
                 gameEndLoser()
             } else {
                 playerDoesDamageFour()
+                if(computerHealth <= 0){
+                    gameEndWinner()
+                }
             }
-        }else if(characterPicked.speed === cpuPick.speed){
+        } else if(characterPicked.speed === cpuPick.speed){
             let j = Math.floor(Math.random)
             if(j < 0.5){
                 playerDoesDamageFour()
                 if(computerHealth <= 0){
                     gameEndWinner()
-                }else {
+                } else{
                     computerDoesDamage()
+                    if(playerHealth <= 0){
+                        gameEndLoser()
+                    }
                 }
             } else if(j => 0.5){
                 computerDoesDamage()
@@ -320,6 +379,9 @@ function playGame(){
                     gameEndLoser()
                 } else {
                     playerDoesDamageFour()
+                    if(computerHealth <= 0){
+                        gameEndWinner()
+                    }
                 }
             }
         }
@@ -381,11 +443,4 @@ grid[1].addEventListener('click', catSelected)
 grid[2].addEventListener('click', snakeSelected)
 grid[3].addEventListener('click', turtleSelected)
 
-// if(cat.speed > dog.speed){
-
-//     console.log(cat.speed)
-// }else{
-
-//     console.log(dog.speed)
-// }
 
