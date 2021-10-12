@@ -116,6 +116,9 @@ section.characterSelectScreen {
 .grid div:hover {
   margin-top: 20px;
 }
+.hover {
+  margin-top: 20px;
+}
 
 .character-option-dog {
   background-image: url("https://img.pokemondb.net/sprites/red-blue/normal/blastoise.png");

@@ -522,6 +522,112 @@ function turtleSelected(){
 
 
 
+// const arrowRight = document.querySelectorAll('.arrows div')
+//const grid = document.querySelectorAll('.grid div')
+
+
+
+characterListArray = ['noHover', 'noHover', 'noHover', 'noHover']
+// mainListArray = ['inactive', 'inactive', 'inactive']
+// mainListArrayOpacity = ['noshow', 'noshow', 'noshow']
+// //mainList
+grid.forEach((cell, i) => {
+    cell.classList.add(characterListArray[i])
+})
+// mainList.forEach((cell, i) => {
+//     cell.classList.add(mainListArray[i])
+//     cell.classList.add(mainListArrayOpacity[i])
+//   })
+
+const nonChosen = Array.from(grid).filter((cell) => {
+    return cell.classList.contains('noHover')
+})
+//   const freeCells = Array.from(mainList).filter((cell) => {
+//     return cell.classList.contains('inactive')
+//   })
+
+//   const notShowingCells = Array.from(arrowRight).filter((cell) => {
+//       return cell.classList.contains('opacity')
+//   })
+
+// //initialise the active highlghting class
+
+const beginning = nonChosen[0]
+beginning.classList.add('hover')
+// const starting = freeCells[0]
+// starting.classList.add('active')
+// const opacityStarting = notShowingCells[0]
+// opacityStarting.classList.add('show')
+
+// //storing the active position
+let hoverIndex = Array.from(grid).indexOf(beginning)
+// let activeIndex = Array.from(mainList).indexOf(starting)
+// let opacityIndex = Array.from(arrowRight).indexOf(opacityStarting)
+const handleArrowRightCharacter = () => {
+    const isSelectorOnRightEdge = (hoverIndex) => hoverIndex === 3
+    tryMoveSelector(1, isSelectorOnRightEdge)
+    startingScreen = 'characterChoose'
+}
+// const handleArrowUpMenu = () => {
+    //     const isPlayerOnTop = (activeIndex) => activeIndex === 0
+    //     tryMovePlayer(-1, isPlayerOnTop)
+    //   }
+    const handleArrowLeftCharacter = () => {
+        const isSelectorOnLeftEdge = (hoverIndex) => hoverIndex === 0
+        tryMoveSelector(-1, isSelectorOnLeftEdge)
+        startingScreen = 'characterChoose'
+    }
+    
+// const handleArrowDownMenu = () => {
+//     const isPlayerOnBottom = (activeIndex) => activeIndex === 2
+//     tryMovePlayer(1, isPlayerOnBottom)
+//   }
+const tryMoveSelector = (changeInIndex, isIndexAtLimit) => {
+    if (startScreen.classList.contains('hidden') && battleScreen.classList.contains('hidden')){
+
+        if (isIndexAtLimit(hoverIndex)) {
+            return
+        }
+    
+        const newHoverIndex = hoverIndex + changeInIndex
+        
+        const newSector = grid[newHoverIndex]
+    
+        grid[hoverIndex].classList.remove('hover')
+        newSector.classList.add('hover')
+    
+        hoverIndex = newHoverIndex
+    }
+}
+
+document.addEventListener('keydown', function (event) {
+    switch (event.key) {
+        case 'ArrowRight':
+            handleArrowRightCharacter()
+            break
+            case 'ArrowLeft':
+                handleArrowLeftCharacter()
+                break
+            }
+        })
+        
+        function choose() {
+            console.log('hello')
+            if(grid[0].classList.contains('hover')){
+                dogSelected()
+            } else if(grid[1].classList.contains('hover')){
+                catSelected()
+            }else if(grid[2].classList.contains('hover')){
+                snakeSelected()
+            } else{
+                turtleSelected()
+            }
+        }
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'e' && startScreen.classList.contains('hidden') && battleScreen.classList.contains('hidden')) {
+        choose()
+    }
+ })
 
 
 grid[0].addEventListener('click', dogSelected)

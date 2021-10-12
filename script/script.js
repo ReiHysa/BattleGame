@@ -19,7 +19,7 @@ const arrowRight = document.querySelectorAll('.arrows div')
 const mainList = document.querySelectorAll('.main-menu li')
 const outcome = document.querySelector('.decisions h3')
 
-
+let startingScreen = true
 
 
 function opacity() {
@@ -63,6 +63,7 @@ itemClicked.addEventListener('click', itemHidden)
 function characterSelectScreen() { 
     startScreen.classList.add('hidden')
     characterSelectionScreen.classList.remove('hidden')
+    startingScreen = 'characterChoose'
 
 }
 
