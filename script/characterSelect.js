@@ -111,7 +111,7 @@ let cpuPick = null
 const dog = new Pet(1.5, 1.5, 100, 1.5)
 const cat = new Pet(1.5, 1.2, 100, 2)
 const snake = new Pet(2, 1.2, 100, 1.5)
-const turtle = new Pet(1.2, 2, 100, 1)
+const turtle = new Pet(1.1, 2.2, 100, 1)
 
 function playGame(){
     let i = Math.floor(Math.random() * grid.length)
@@ -198,7 +198,7 @@ function playGame(){
     function playerDoesDamageFour() {
         let playerdamage = baseDamage[3] * characterPicked.attack/ cpuPick.defence
         miss = Math.random()
-        if (miss < 0.6){
+        if (miss < 0.5){
             computerHealth -= playerdamage
             computerLifeBar.setAttribute('value', computerHealth)
             computerlifeValue.textContent = Math.floor(computerHealth)
@@ -238,7 +238,7 @@ function playGame(){
             }
 
         } else if ( d === 3){
-            if (miss < 0.6){
+            if (miss < 0.5){
                 playerHealth -= computerDamage
                 playerLifeBar.setAttribute('value', playerHealth)
                 playerlifeValue.textContent = Math.floor(playerHealth)
@@ -519,69 +519,35 @@ function turtleSelected(){
     playGame()
 }
 
-
-
-
-// const arrowRight = document.querySelectorAll('.arrows div')
-//const grid = document.querySelectorAll('.grid div')
-
-
-
 characterListArray = ['noHover', 'noHover', 'noHover', 'noHover']
-// mainListArray = ['inactive', 'inactive', 'inactive']
-// mainListArrayOpacity = ['noshow', 'noshow', 'noshow']
-// //mainList
+
 grid.forEach((cell, i) => {
     cell.classList.add(characterListArray[i])
 })
-// mainList.forEach((cell, i) => {
-//     cell.classList.add(mainListArray[i])
-//     cell.classList.add(mainListArrayOpacity[i])
-//   })
+
 
 const nonChosen = Array.from(grid).filter((cell) => {
     return cell.classList.contains('noHover')
 })
-//   const freeCells = Array.from(mainList).filter((cell) => {
-//     return cell.classList.contains('inactive')
-//   })
 
-//   const notShowingCells = Array.from(arrowRight).filter((cell) => {
-//       return cell.classList.contains('opacity')
-//   })
-
-// //initialise the active highlghting class
 
 const beginning = nonChosen[0]
 beginning.classList.add('hover')
-// const starting = freeCells[0]
-// starting.classList.add('active')
-// const opacityStarting = notShowingCells[0]
-// opacityStarting.classList.add('show')
 
-// //storing the active position
 let hoverIndex = Array.from(grid).indexOf(beginning)
-// let activeIndex = Array.from(mainList).indexOf(starting)
-// let opacityIndex = Array.from(arrowRight).indexOf(opacityStarting)
+
 const handleArrowRightCharacter = () => {
     const isSelectorOnRightEdge = (hoverIndex) => hoverIndex === 3
     tryMoveSelector(1, isSelectorOnRightEdge)
     startingScreen = 'characterChoose'
 }
-// const handleArrowUpMenu = () => {
-    //     const isPlayerOnTop = (activeIndex) => activeIndex === 0
-    //     tryMovePlayer(-1, isPlayerOnTop)
-    //   }
+
     const handleArrowLeftCharacter = () => {
         const isSelectorOnLeftEdge = (hoverIndex) => hoverIndex === 0
         tryMoveSelector(-1, isSelectorOnLeftEdge)
         startingScreen = 'characterChoose'
     }
     
-// const handleArrowDownMenu = () => {
-//     const isPlayerOnBottom = (activeIndex) => activeIndex === 2
-//     tryMovePlayer(1, isPlayerOnBottom)
-//   }
 const tryMoveSelector = (changeInIndex, isIndexAtLimit) => {
     if (startScreen.classList.contains('hidden') && battleScreen.classList.contains('hidden')){
 

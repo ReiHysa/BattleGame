@@ -63,7 +63,6 @@ itemClicked.addEventListener('click', itemHidden)
 function characterSelectScreen() { 
     startScreen.classList.add('hidden')
     characterSelectionScreen.classList.remove('hidden')
-    startingScreen = 'characterChoose'
 
 }
 

@@ -16,7 +16,7 @@ section.startScreen {
   color: black;
   flex-direction: column;
   align-items: center;
-  height: 45vh;
+  height: 340px;
   width: 420px;
   border: 4px dashed black;
 }
@@ -83,7 +83,7 @@ section.characterSelectScreen {
   background-color: lightgray;
   flex-direction: column;
   align-items: center;
-  height: 45vh;
+  height: 340px;
   width: 420px;
   border: 4px dashed black;
 }
@@ -183,7 +183,7 @@ section.battle {
   color: black;
   flex-direction: column;
   align-items: center;
-  height: 45vh;
+  height: 340px;
   width: 420px;
   border: 4px dashed black;
   position: relative;
