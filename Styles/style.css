@@ -282,11 +282,11 @@ h3 {
 
 .content {
   width: 70%;
-  height: 90%;
+  height: 97%;
   background-color: rgb(196, 196, 196);
   border-left: 2px solid darkgrey;
   position: relative;
-  bottom: 0.5px;
+  bottom: 0px;
 }
 .attack-content {
   height: 100%;
@@ -352,4 +352,11 @@ section.hidden {
 }
 .chosenCharacter p {
   text-align: center;
+}
+@media screen and (min-width: 800px) {
+  body {
+    background-image: url(../Images/gamebot.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }

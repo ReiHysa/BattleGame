@@ -93,7 +93,6 @@ function aboutFunction() {
         const howToParagraph = document.createElement('p')
         howToParagraph.textContent = "This is a project game made by Reisli Hysa! This was project one of General Assembly's SEI curriculumn where I decided to challenge myself and make an old fashioned pokemon battling aesthetic as my game. The aim was to use and create many different techniques aquired within my first few weeks of learning to develop a functional good game. Hope you enjoy! Look at my portfolio at 'not made yet :P'"
         information.appendChild(howToParagraph)
-        console.log(howToParagraph)
 
     }
 }
