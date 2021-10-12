@@ -154,3 +154,15 @@ Using Javascript, I would toggle the opacity to show the specific arrows when ho
     }
 
 I added these functions for every type of class which would replace the content box with the respective character, and also change the text of the box. It would also toggle the opacity, showing the arrow element.
+
+monday:
+
+added probability
+added damage being taken and given
+added a winner and loser
+added potions being in effect
+added menu indentation
+added attack moves and items hidden effect
+added character model to battle arena
+
+tuesday:

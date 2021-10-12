@@ -17,6 +17,7 @@ const ending = document.querySelector('.ending')
 const endingH2 = document.querySelector('.ending h2')
 const arrowRight = document.querySelectorAll('.arrows div')
 const mainList = document.querySelectorAll('.main-menu li')
+const outcome = document.querySelector('.decisions h3')
 
 
 
@@ -44,7 +45,7 @@ function attackHidden(){
         itemChoice.classList.add('hidden')
     }
     attackChoice.classList.toggle('hidden')
-console.log('clicked')
+
 }
 function itemHidden(){
     if(!attackChoice.classList.contains('hidden')){
@@ -82,7 +83,6 @@ function howToFunction() {
 
 function aboutFunction() {
     let informationContent = information.hasChildNodes()
-    console.log(informationContent)
 
     if(informationContent === true){
         information.removeChild(information.firstChild)
@@ -97,6 +97,94 @@ function aboutFunction() {
 
     }
 }
+
+// const arrowRight = document.querySelectorAll('.arrows div')
+
+mainListArray = ['inactive', 'inactive', 'inactive']
+mainListArrayOpacity = ['noshow', 'noshow', 'noshow']
+//mainList
+
+mainList.forEach((cell, i) => {
+    cell.classList.add(mainListArray[i])
+    cell.classList.add(mainListArrayOpacity[i])
+  })
+
+  const freeCells = Array.from(mainList).filter((cell) => {
+    return cell.classList.contains('inactive')
+  })
+
+  const notShowingCells = Array.from(arrowRight).filter((cell) => {
+      return cell.classList.contains('opacity')
+  })
+
+//initialise the active highlghting class
+
+const starting = freeCells[0]
+starting.classList.add('active')
+const opacityStarting = notShowingCells[0]
+opacityStarting.classList.add('show')
+
+//storing the active position
+
+let activeIndex = Array.from(mainList).indexOf(starting)
+let opacityIndex = Array.from(arrowRight).indexOf(opacityStarting)
+
+const handleArrowUpMenu = () => {
+    const isPlayerOnTop = (activeIndex) => activeIndex === 0
+    tryMovePlayer(-1, isPlayerOnTop)
+  }
+
+const handleArrowDownMenu = () => {
+    const isPlayerOnBottom = (activeIndex) => activeIndex === 2
+    tryMovePlayer(1, isPlayerOnBottom)
+  }
+
+const tryMovePlayer = (changeInIndex, isIndexAtLimit) => {
+    if (isIndexAtLimit(activeIndex)) {
+        return
+    }
+
+    const newIndex = activeIndex + changeInIndex
+
+    const newCell = mainList[newIndex]
+    const newCellOpacity = arrowRight[newIndex]
+
+    mainList[activeIndex].classList.remove('active')
+    newCell.classList.add('active')
+
+    arrowRight[activeIndex].classList.remove('show')
+    newCellOpacity.classList.add('show')
+
+    activeIndex = newIndex
+}
+
+document.addEventListener('keydown', function (event) {
+    switch (event.key) {
+        case 'ArrowUp':
+            handleArrowUpMenu()
+            break
+        case 'ArrowDown':
+            handleArrowDownMenu()
+            break
+            }
+        })
+
+function submission() {
+    if (mainList[0].classList.contains('active')){
+        characterSelectScreen()
+    } else if(mainList[1].classList.contains('active')){
+        howToFunction()
+    } else{
+        aboutFunction()
+    }
+}
+
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+        submission()
+    }
+})
 
 startGame.addEventListener('click', characterSelectScreen)
 howToPlay.addEventListener('click', howToFunction)

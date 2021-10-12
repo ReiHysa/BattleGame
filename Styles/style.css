@@ -35,6 +35,12 @@ section.startScreen ul {
 section.startScreen ul li:hover {
   margin-left: 8px;
 }
+section.startScreen .active {
+  margin-left: 0px;
+}
+section.startScreen .active {
+  margin-left: 8px;
+}
 
 .arrows {
   display: flex;
@@ -340,6 +346,9 @@ section.hidden {
 }
 .opacity {
   opacity: 0;
+}
+.show {
+  opacity: 100%;
 }
 .chosenCharacter p {
   text-align: center;

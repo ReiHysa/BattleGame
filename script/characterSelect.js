@@ -158,58 +158,94 @@ function playGame(){
     }
     function playerDoesDamageOne() {
         let playerdamage = baseDamage[0] * characterPicked.attack/ cpuPick.defence
-        let miss = Math.floor(Math.random())
+        let miss = Math.random()
         if (miss < 0.9) {
             computerHealth -= playerdamage
             computerLifeBar.setAttribute('value', computerHealth)
-            computerlifeValue.textContent = computerHealth
-            //Say you landed the hit and dealt specific amount of damage
+            computerlifeValue.textContent = Math.floor(computerHealth)
+            outcome.textContent = `You landed your move and did ${Math.floor(playerdamage)} damage`
         } else {
+            outcome.textContent = `Your move was dodged as you miss your mark!`
             return
         }
     }
     function playerDoesDamageTwo() {
         let playerdamage = baseDamage[1] * characterPicked.attack/ cpuPick.defence
-        miss = Math.Floor(Math.random())
+        miss = Math.random()
         if (miss < 0.8){
             computerHealth -= playerdamage
             computerLifeBar.setAttribute('value', computerHealth)
             computerlifeValue.textContent = Math.floor(computerHealth)
-
+            outcome.textContent = `You landed your move and did ${Math.floor(playerdamage)} damage`
         } else{
             return
+            outcome.textContent = `Your move was dodged as you miss your mark!`
         }
     }
     function playerDoesDamageThree() {
         let playerdamage = baseDamage[2] * characterPicked.attack/ cpuPick.defence
-        miss = Math.Floor(Math.random())
+        miss = Math.random()
         if (miss < 0.75){
             computerHealth -= playerdamage
             computerLifeBar.setAttribute('value', computerHealth)
             computerlifeValue.textContent = Math.floor(computerHealth)
-
+            outcome.textContent = `You landed your move and did ${Math.floor(playerdamage)} damage`
         } else{
+            outcome.textContent = `Your move was dodged as you miss your mark!`
             return
         }
     }
     function playerDoesDamageFour() {
         let playerdamage = baseDamage[3] * characterPicked.attack/ cpuPick.defence
-        miss = Math.Floor(Math.random())
+        miss = Math.random()
         if (miss < 0.6){
             computerHealth -= playerdamage
             computerLifeBar.setAttribute('value', computerHealth)
             computerlifeValue.textContent = Math.floor(computerHealth)
-
+            outcome.textContent = `You landed your move and did ${Math.floor(playerdamage)} damage`
         } else{
+            outcome.textContent = `Your move was dodged as you miss your mark!`
             return
         }
     }
     function computerDoesDamage() {
         let d = Math.floor(Math.random() * 4)
         let computerDamage = baseDamage[d] * cpuPick.attack / characterPicked.defence
-        playerHealth -= computerDamage
-        playerLifeBar.setAttribute('value', playerHealth)
-        playerlifeValue.textContent = Math.floor(playerHealth)
+        miss = Math.random()
+        if ( d === 0){
+            if (miss < 0.9){
+                playerHealth -= computerDamage
+                playerLifeBar.setAttribute('value', playerHealth)
+                playerlifeValue.textContent = Math.floor(playerHealth)
+            } else {
+                return
+            }
+        } else if ( d === 1){
+            if (miss < 0.8) {
+                playerHealth -= computerDamage
+                playerLifeBar.setAttribute('value', playerHealth)
+                playerlifeValue.textContent = Math.floor(playerHealth)
+            } else {
+                return
+            }
+        } else if ( d === 2){
+            if (miss < 0.75) {
+                playerHealth -= computerDamage
+                playerLifeBar.setAttribute('value', playerHealth)
+                playerlifeValue.textContent = Math.floor(playerHealth)
+            } else{
+                return
+            }
+
+        } else if ( d === 3){
+            if (miss < 0.6){
+                playerHealth -= computerDamage
+                playerLifeBar.setAttribute('value', playerHealth)
+                playerlifeValue.textContent = Math.floor(playerHealth)
+            } else {
+                return
+            }
+        } 
     }
     function reloadPage(){
         location.reload()
