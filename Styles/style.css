@@ -280,7 +280,11 @@ h3 {
   margin: 20px 0px;
 }
 .choice ul li:hover {
-  color: darkgrey;
+  margin-left: 8px;
+}
+
+.yes {
+  color: darkgray;
 }
 
 .content {
@@ -318,6 +322,9 @@ h3 {
   align-items: center;
 }
 .content p:hover {
+  color: white;
+}
+.moveHover {
   color: white;
 }
 h4 {
