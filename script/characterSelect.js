@@ -7,7 +7,6 @@ const playerModel = document.querySelector(".character-model");
 const computerModel = document.querySelector(".cpu-model");
 const characterName = document.querySelector(".characterName");
 const computerName = document.querySelector(".CpuName");
-const attackMoves = document.querySelectorAll(".attack-content p");
 
 const baseDamage = [10, 13, 12, 20];
 
@@ -501,43 +500,6 @@ function playGame() {
   itemChoices[3].addEventListener("click", itemFour);
 }
 
-function dogSelected() {
-  characterPicked = dog;
-  console.log(characterPicked);
-  attackMoves[0].textContent = "Bite";
-  attackMoves[1].textContent = "Dig";
-  attackMoves[2].textContent = "Roll";
-  attackMoves[3].textContent = "Lick";
-  playGame();
-}
-function catSelected() {
-  characterPicked = cat;
-  console.log(characterPicked);
-  attackMoves[0].textContent = "Bite";
-  attackMoves[1].textContent = "Scratch";
-  attackMoves[2].textContent = "Catch";
-  attackMoves[3].textContent = "Purr";
-  playGame();
-}
-function snakeSelected() {
-  characterPicked = snake;
-  console.log(characterPicked);
-  attackMoves[0].textContent = "Bite";
-  attackMoves[1].textContent = "Venom";
-  attackMoves[2].textContent = "Coil";
-  attackMoves[3].textContent = "Fangs";
-  playGame();
-}
-function turtleSelected() {
-  characterPicked = turtle;
-  console.log(characterPicked);
-  attackMoves[0].textContent = "Bite";
-  attackMoves[1].textContent = "Shell Smash";
-  attackMoves[2].textContent = "HeadButt";
-  attackMoves[3].textContent = "Rapid Spin";
-  playGame();
-}
-
 characterListArray = ["noHover", "noHover", "noHover", "noHover"];
 
 grid.forEach((cell, i) => {
@@ -554,17 +516,35 @@ beginning.classList.add("hover");
 let hoverIndex = Array.from(grid).indexOf(beginning);
 
 const handleArrowRight = () => {
-  const isSelectorOnRightEdge = (hoverIndex) => hoverIndex === 3;
-  tryMoveSelector(1, isSelectorOnRightEdge);
-  startingScreen = "characterChoose";
-  characterInDisplay();
+  if (screenTwo === true) {
+    const isSelectorOnRightEdge = (hoverIndex) => hoverIndex === 3;
+    tryMoveSelector(1, isSelectorOnRightEdge);
+    startingScreen = "characterChoose";
+    characterInDisplay();
+  } else if (
+    screenOne === false &&
+    contentSelectionAttack == true &&
+    contentSelectionItem == false
+  ) {
+    const moveIsOnBottom = (moveIndex) => moveIndex === 3;
+    tryMoveAttack(1, moveIsOnBottom);
+  }
 };
 
 const handleArrowLeft = () => {
-  const isSelectorOnLeftEdge = (hoverIndex) => hoverIndex === 0;
-  tryMoveSelector(-1, isSelectorOnLeftEdge);
-  startingScreen = "characterChoose";
-  characterInDisplay();
+  if (screenTwo === true) {
+    const isSelectorOnLeftEdge = (hoverIndex) => hoverIndex === 0;
+    tryMoveSelector(-1, isSelectorOnLeftEdge);
+    startingScreen = "characterChoose";
+    characterInDisplay();
+  } else if (
+    screenOne === false &&
+    contentSelectionAttack == true &&
+    contentSelectionItem == false
+  ) {
+    const moveIsOnTop = (moveIndex) => moveIndex === 0;
+    tryMoveAttack(-1, moveIsOnTop);
+  }
 };
 
 const tryMoveSelector = (changeInIndex, isIndexAtLimit) => {
@@ -606,8 +586,38 @@ function handleEnter() {
     submission();
   } else if (screenTwo === true) {
     choose();
+  } else if (
+    screenOne === false &&
+    screenTwo === false &&
+    contentSelectionItem === false &&
+    contentSelectionAttack === false
+  ) {
+    if (battleDecisions[0].classList.contains("yes")) {
+      attackHidden();
+      contentSelectionAttack = true;
+    } else {
+      itemHidden();
+      contentSelectionItem = true;
+    }
+  } else if (
+    screenOne === false &&
+    screenTwo === false &&
+    contentSelectionItem === false &&
+    contentSelectionAttack === true
+  ) {
+    if (attackMoves[0].classList.contains("move")) {
+      speedCheckOne();
+    } else if (attackMoves[1].classList.contains("move")) {
+      speedCheckTwo();
+    } else if (attackMoves[2].classList.contains("move")) {
+      speedCheckThree();
+    } else if (attackMoves[3].classList.contains("move")) {
+      speedCheckFour();
+    }
   }
 }
+//itemChoices
+//attackMoves
 
 document.addEventListener("keydown", function (event) {
   switch (event.key) {
@@ -633,3 +643,40 @@ grid[0].addEventListener("click", dogSelected);
 grid[1].addEventListener("click", catSelected);
 grid[2].addEventListener("click", snakeSelected);
 grid[3].addEventListener("click", turtleSelected);
+
+function dogSelected() {
+  characterPicked = dog;
+  console.log(characterPicked);
+  attackMoves[0].textContent = "Bite";
+  attackMoves[1].textContent = "Dig";
+  attackMoves[2].textContent = "Roll";
+  attackMoves[3].textContent = "Lick";
+  playGame();
+}
+function catSelected() {
+  characterPicked = cat;
+  console.log(characterPicked);
+  attackMoves[0].textContent = "Bite";
+  attackMoves[1].textContent = "Scratch";
+  attackMoves[2].textContent = "Catch";
+  attackMoves[3].textContent = "Purr";
+  playGame();
+}
+function snakeSelected() {
+  characterPicked = snake;
+  console.log(characterPicked);
+  attackMoves[0].textContent = "Bite";
+  attackMoves[1].textContent = "Venom";
+  attackMoves[2].textContent = "Coil";
+  attackMoves[3].textContent = "Fangs";
+  playGame();
+}
+function turtleSelected() {
+  characterPicked = turtle;
+  console.log(characterPicked);
+  attackMoves[0].textContent = "Bite";
+  attackMoves[1].textContent = "Shell Smash";
+  attackMoves[2].textContent = "HeadButt";
+  attackMoves[3].textContent = "Rapid Spin";
+  playGame();
+}

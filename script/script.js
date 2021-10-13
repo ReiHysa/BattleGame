@@ -20,11 +20,16 @@ const endingH2 = document.querySelector(".ending h2");
 const arrowRight = document.querySelectorAll(".arrows div");
 const mainList = document.querySelectorAll(".main-menu li");
 const outcome = document.querySelector(".decisions h3");
+const battleDecisions = document.querySelectorAll(".choice li");
+const attackMoves = document.querySelectorAll(".attack-content p");
 
 let screenOne = true;
 let screenTwo = false;
 let screenThree = false;
 let sound = false;
+
+let contentSelectionAttack = false;
+let contentSelectionItem = false;
 
 function opacity() {
   arrowRight[0].classList.toggle("opacity");
@@ -98,15 +103,24 @@ function aboutFunction() {
   }
 }
 
-// const arrowRight = document.querySelectorAll('.arrows div')
-
 mainListArray = ["inactive", "inactive", "inactive"];
 mainListArrayOpacity = ["noshow", "noshow", "noshow"];
+BDArray = ["no", "no"];
+AMoves = ["none", "none", "none", "none"];
 //mainList
+
+//battleDecisions
 
 mainList.forEach((cell, i) => {
   cell.classList.add(mainListArray[i]);
   cell.classList.add(mainListArrayOpacity[i]);
+});
+
+battleDecisions.forEach((cell, i) => {
+  cell.classList.add(BDArray[i]);
+});
+attackMoves.forEach((cell, i) => {
+  cell.classList.add(AMoves[i]);
 });
 
 const freeCells = Array.from(mainList).filter((cell) => {
@@ -117,22 +131,42 @@ const notShowingCells = Array.from(arrowRight).filter((cell) => {
   return cell.classList.contains("opacity");
 });
 
+const AttIteVal = Array.from(battleDecisions).filter((cell) => {
+  return cell.classList.contains("no");
+});
+
+const AttVal = Array.from(attackMoves).filter((cell) => {
+  return cell.classList.contains("none");
+});
 //initialise the active highlghting class
 
 const starting = freeCells[0];
 starting.classList.add("active");
 const opacityStarting = notShowingCells[0];
 opacityStarting.classList.add("show");
+const battleSelect = AttIteVal[0];
+battleSelect.classList.add("yes");
+const attackSelect = AttVal[0];
+attackSelect.classList.add("moveHover");
 
 //storing the active position
 
 let activeIndex = Array.from(mainList).indexOf(starting);
 let opacityIndex = Array.from(arrowRight).indexOf(opacityStarting);
+let cursorIndex = Array.from(battleDecisions).indexOf(battleSelect);
+let moveIndex = Array.from(attackMoves).indexOf(attackSelect);
 
 const handleArrowUp = () => {
   if (screenOne === true) {
     const isPlayerOnTop = (activeIndex) => activeIndex === 0;
     tryMovePlayer(-1, isPlayerOnTop);
+  } else if (
+    screenOne === false &&
+    contentSelectionAttack == false &&
+    contentSelectionItem == false
+  ) {
+    const cursorIsOnTop = (cursorIndex) => cursorIndex === 0;
+    tryMoveCursor(-1, cursorIsOnTop);
   }
 };
 
@@ -140,8 +174,29 @@ const handleArrowDown = () => {
   if (screenOne === true) {
     const isPlayerOnBottom = (activeIndex) => activeIndex === 2;
     tryMovePlayer(1, isPlayerOnBottom);
-  } else if (screenThree === true) {
+  } else if (
+    screenOne === false &&
+    contentSelectionAttack === false &&
+    contentSelectionItem === false
+  ) {
+    const cursorIsOnBottom = (cursorIndex) => cursorIndex === 1;
+    tryMoveCursor(1, cursorIsOnBottom);
   }
+};
+
+const tryMoveAttack = (change, limit) => {
+  if (limit(moveIndex)) {
+    return;
+  }
+
+  const newMoveIndex = moveIndex + change;
+
+  const newMove = attackMoves[newMoveIndex];
+
+  attackMoves[moveIndex].classList.remove("moveHover");
+  newMove.classList.add("moveHover");
+
+  moveIndex = newMoveIndex;
 };
 
 const tryMovePlayer = (changeInIndex, isIndexAtLimit) => {
@@ -161,6 +216,21 @@ const tryMovePlayer = (changeInIndex, isIndexAtLimit) => {
   newCellOpacity.classList.add("show");
 
   activeIndex = newIndex;
+};
+
+const tryMoveCursor = (change, limit) => {
+  if (limit(cursorIndex)) {
+    return;
+  }
+
+  const newCursorIndex = cursorIndex + change;
+
+  const newCursor = battleDecisions[newCursorIndex];
+
+  battleDecisions[cursorIndex].classList.remove("yes");
+  newCursor.classList.add("yes");
+
+  cursorIndex = newCursorIndex;
 };
 
 function submission() {
