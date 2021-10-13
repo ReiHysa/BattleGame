@@ -106,7 +106,8 @@ function aboutFunction() {
 mainListArray = ["inactive", "inactive", "inactive"];
 mainListArrayOpacity = ["noshow", "noshow", "noshow"];
 BDArray = ["no", "no"];
-AMoves = ["none", "none", "none", "none"];
+let AMoves = ["none", "none", "none", "none"];
+let IMoves = ["none", "none", "none", "none"];
 //mainList
 
 //battleDecisions
@@ -121,6 +122,9 @@ battleDecisions.forEach((cell, i) => {
 });
 attackMoves.forEach((cell, i) => {
   cell.classList.add(AMoves[i]);
+});
+itemChoices.forEach((cell, i) => {
+  cell.classList.add(IMoves[i]);
 });
 
 const freeCells = Array.from(mainList).filter((cell) => {
@@ -138,6 +142,10 @@ const AttIteVal = Array.from(battleDecisions).filter((cell) => {
 const AttVal = Array.from(attackMoves).filter((cell) => {
   return cell.classList.contains("none");
 });
+
+const IteVal = Array.from(itemChoices).filter((cell) => {
+  return cell.classList.contains("none");
+});
 //initialise the active highlghting class
 
 const starting = freeCells[0];
@@ -148,6 +156,9 @@ const battleSelect = AttIteVal[0];
 battleSelect.classList.add("yes");
 const attackSelect = AttVal[0];
 attackSelect.classList.add("moveHover");
+battleSelect.classList.add("yes");
+const itemSelect = IteVal[0];
+attackSelect.classList.add("moveHover");
 
 //storing the active position
 
@@ -155,6 +166,7 @@ let activeIndex = Array.from(mainList).indexOf(starting);
 let opacityIndex = Array.from(arrowRight).indexOf(opacityStarting);
 let cursorIndex = Array.from(battleDecisions).indexOf(battleSelect);
 let moveIndex = Array.from(attackMoves).indexOf(attackSelect);
+let itemIndex = Array.from(itemChoices).indexOf(itemSelect);
 
 const handleArrowUp = () => {
   if (screenOne === true) {
@@ -197,6 +209,21 @@ const tryMoveAttack = (change, limit) => {
   newMove.classList.add("moveHover");
 
   moveIndex = newMoveIndex;
+};
+
+const tryMoveItem = (change, limit) => {
+  if (limit(itemIndex)) {
+    return;
+  }
+
+  const newItemIndex = itemIndex + change;
+
+  const newItem = itemChoices[newItemIndex];
+
+  itemChoices[itemIndex].classList.remove("moveHover");
+  newItem.classList.add("moveHover");
+
+  itemIndex = newItemIndex;
 };
 
 const tryMovePlayer = (changeInIndex, isIndexAtLimit) => {

@@ -248,6 +248,9 @@ function computerDoesDamage() {
       return;
     }
   }
+  if (playerHealth <= 0) {
+    gameEndLoser();
+  }
 }
 function reloadPage() {
   location.reload();
@@ -573,6 +576,13 @@ const handleArrowRight = () => {
   ) {
     const moveIsOnBottom = (moveIndex) => moveIndex === 3;
     tryMoveAttack(1, moveIsOnBottom);
+  } else if (
+    screenOne === false &&
+    contentSelectionAttack == false &&
+    contentSelectionItem == true
+  ) {
+    const itemIsOnBottom = (moveIndex) => moveIndex === 3;
+    tryMoveItem(1, itemIsOnBottom);
   }
 };
 
@@ -589,6 +599,13 @@ const handleArrowLeft = () => {
   ) {
     const moveIsOnTop = (moveIndex) => moveIndex === 0;
     tryMoveAttack(-1, moveIsOnTop);
+  } else if (
+    screenOne === false &&
+    contentSelectionAttack == false &&
+    contentSelectionItem == true
+  ) {
+    const itemIsOnBottom = (moveIndex) => moveIndex === 0;
+    tryMoveItem(-1, itemIsOnBottom);
   }
 };
 
@@ -658,6 +675,25 @@ function handleEnter() {
       speedCheckThree();
     } else if (attackMoves[3].classList.contains("moveHover")) {
       speedCheckFour();
+    }
+  } else if (
+    screenOne === false &&
+    screenTwo === false &&
+    contentSelectionItem === true &&
+    contentSelectionAttack === false
+  ) {
+    if (itemChoices[0].classList.contains("moveHover")) {
+      itemOne();
+      contentSelectionItem = false;
+    } else if (itemChoices[1].classList.contains("moveHover")) {
+      itemTwo();
+      contentSelectionItem = false;
+    } else if (itemChoices[2].classList.contains("moveHover")) {
+      itemThree();
+      contentSelectionItem = false;
+    } else if (itemChoices[3].classList.contains("moveHover")) {
+      itemFour();
+      contentSelectionItem = false;
     }
   }
 }
