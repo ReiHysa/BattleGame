@@ -261,6 +261,8 @@ function gameEndWinner() {
   endingH2.textContent = "YOU WON! CLICK TO GO AGAIN!";
   onLoad();
   endingH2.addEventListener("click", reloadPage);
+  computerHealth = 0;
+  computerlifeValue.textContent = Math.floor(computerHealth);
 }
 function gameEndLoser() {
   sound = true;
@@ -270,6 +272,8 @@ function gameEndLoser() {
   ending.classList.toggle("hidden");
   endingH2.textContent = "YOU LOST! CLICK TO GO AGAIN!";
   endingH2.addEventListener("click", reloadPage);
+  playerHealth = 0;
+  playerlifeValue.textContent = Math.floor(playerHealth);
 }
 
 function speedCheckOne() {
