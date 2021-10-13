@@ -141,142 +141,163 @@ function playGame() {
     playerModel.classList.add("character-option-turtle");
     characterName.textContent = "Lazy Turtle";
   }
-  function playerDoesDamageOne() {
-    let playerdamage =
-      (baseDamage[0] * characterPicked.attack) / cpuPick.defence;
-    let miss = Math.random();
+}
+function playerDoesDamageOne() {
+  let playerdamage = (baseDamage[0] * characterPicked.attack) / cpuPick.defence;
+  let miss = Math.random();
+  if (miss < 0.9) {
+    computerHealth -= playerdamage;
+    computerLifeBar.setAttribute("value", computerHealth);
+    computerlifeValue.textContent = Math.floor(computerHealth);
+    outcome.textContent = `You landed your move and did ${Math.floor(
+      playerdamage
+    )} damage`;
+    attackChoice.classList.toggle("hidden");
+  } else {
+    outcome.textContent = `Your move was dodged as you miss your mark!`;
+    attackChoice.classList.toggle("hidden");
+    return;
+  }
+}
+function playerDoesDamageTwo() {
+  let playerdamage = (baseDamage[1] * characterPicked.attack) / cpuPick.defence;
+  miss = Math.random();
+  if (miss < 0.8) {
+    computerHealth -= playerdamage;
+    computerLifeBar.setAttribute("value", computerHealth);
+    computerlifeValue.textContent = Math.floor(computerHealth);
+    outcome.textContent = `You landed your move and did ${Math.floor(
+      playerdamage
+    )} damage`;
+    attackChoice.classList.toggle("hidden");
+  } else {
+    outcome.textContent = `Your move was dodged as you miss your mark!`;
+    attackChoice.classList.toggle("hidden");
+    return;
+  }
+}
+function playerDoesDamageThree() {
+  let playerdamage = (baseDamage[2] * characterPicked.attack) / cpuPick.defence;
+  miss = Math.random();
+  if (miss < 0.75) {
+    computerHealth -= playerdamage;
+    computerLifeBar.setAttribute("value", computerHealth);
+    computerlifeValue.textContent = Math.floor(computerHealth);
+    outcome.textContent = `You landed your move and did ${Math.floor(
+      playerdamage
+    )} damage`;
+    attackChoice.classList.toggle("hidden");
+  } else {
+    outcome.textContent = `Your move was dodged as you miss your mark!`;
+    attackChoice.classList.toggle("hidden");
+    return;
+  }
+}
+function playerDoesDamageFour() {
+  let playerdamage = (baseDamage[3] * characterPicked.attack) / cpuPick.defence;
+  miss = Math.random();
+  if (miss < 0.5) {
+    computerHealth -= playerdamage;
+    computerLifeBar.setAttribute("value", computerHealth);
+    computerlifeValue.textContent = Math.floor(computerHealth);
+    outcome.textContent = `You landed your move and did ${Math.floor(
+      playerdamage
+    )} damage`;
+    attackChoice.classList.toggle("hidden");
+  } else {
+    outcome.textContent = `Your move was dodged as you miss your mark!`;
+    attackChoice.classList.toggle("hidden");
+    return;
+  }
+}
+function computerDoesDamage() {
+  let d = Math.floor(Math.random() * 4);
+  let computerDamage =
+    (baseDamage[d] * cpuPick.attack) / characterPicked.defence;
+  miss = Math.random();
+  if (d === 0) {
     if (miss < 0.9) {
-      computerHealth -= playerdamage;
-      computerLifeBar.setAttribute("value", computerHealth);
-      computerlifeValue.textContent = Math.floor(computerHealth);
-      outcome.textContent = `You landed your move and did ${Math.floor(
-        playerdamage
-      )} damage`;
-      attackChoice.classList.toggle("hidden");
+      playerHealth -= computerDamage;
+      playerLifeBar.setAttribute("value", playerHealth);
+      playerlifeValue.textContent = Math.floor(playerHealth);
     } else {
-      outcome.textContent = `Your move was dodged as you miss your mark!`;
-      attackChoice.classList.toggle("hidden");
       return;
     }
-  }
-  function playerDoesDamageTwo() {
-    let playerdamage =
-      (baseDamage[1] * characterPicked.attack) / cpuPick.defence;
-    miss = Math.random();
+  } else if (d === 1) {
     if (miss < 0.8) {
-      computerHealth -= playerdamage;
-      computerLifeBar.setAttribute("value", computerHealth);
-      computerlifeValue.textContent = Math.floor(computerHealth);
-      outcome.textContent = `You landed your move and did ${Math.floor(
-        playerdamage
-      )} damage`;
-      attackChoice.classList.toggle("hidden");
+      playerHealth -= computerDamage;
+      playerLifeBar.setAttribute("value", playerHealth);
+      playerlifeValue.textContent = Math.floor(playerHealth);
     } else {
-      outcome.textContent = `Your move was dodged as you miss your mark!`;
-      attackChoice.classList.toggle("hidden");
       return;
     }
-  }
-  function playerDoesDamageThree() {
-    let playerdamage =
-      (baseDamage[2] * characterPicked.attack) / cpuPick.defence;
-    miss = Math.random();
+  } else if (d === 2) {
     if (miss < 0.75) {
-      computerHealth -= playerdamage;
-      computerLifeBar.setAttribute("value", computerHealth);
-      computerlifeValue.textContent = Math.floor(computerHealth);
-      outcome.textContent = `You landed your move and did ${Math.floor(
-        playerdamage
-      )} damage`;
-      attackChoice.classList.toggle("hidden");
+      playerHealth -= computerDamage;
+      playerLifeBar.setAttribute("value", playerHealth);
+      playerlifeValue.textContent = Math.floor(playerHealth);
     } else {
-      outcome.textContent = `Your move was dodged as you miss your mark!`;
-      attackChoice.classList.toggle("hidden");
       return;
     }
-  }
-  function playerDoesDamageFour() {
-    let playerdamage =
-      (baseDamage[3] * characterPicked.attack) / cpuPick.defence;
-    miss = Math.random();
+  } else if (d === 3) {
     if (miss < 0.5) {
-      computerHealth -= playerdamage;
-      computerLifeBar.setAttribute("value", computerHealth);
-      computerlifeValue.textContent = Math.floor(computerHealth);
-      outcome.textContent = `You landed your move and did ${Math.floor(
-        playerdamage
-      )} damage`;
-      attackChoice.classList.toggle("hidden");
+      playerHealth -= computerDamage;
+      playerLifeBar.setAttribute("value", playerHealth);
+      playerlifeValue.textContent = Math.floor(playerHealth);
     } else {
-      outcome.textContent = `Your move was dodged as you miss your mark!`;
-      attackChoice.classList.toggle("hidden");
       return;
     }
   }
-  function computerDoesDamage() {
-    let d = Math.floor(Math.random() * 4);
-    let computerDamage =
-      (baseDamage[d] * cpuPick.attack) / characterPicked.defence;
-    miss = Math.random();
-    if (d === 0) {
-      if (miss < 0.9) {
-        playerHealth -= computerDamage;
-        playerLifeBar.setAttribute("value", playerHealth);
-        playerlifeValue.textContent = Math.floor(playerHealth);
-      } else {
-        return;
-      }
-    } else if (d === 1) {
-      if (miss < 0.8) {
-        playerHealth -= computerDamage;
-        playerLifeBar.setAttribute("value", playerHealth);
-        playerlifeValue.textContent = Math.floor(playerHealth);
-      } else {
-        return;
-      }
-    } else if (d === 2) {
-      if (miss < 0.75) {
-        playerHealth -= computerDamage;
-        playerLifeBar.setAttribute("value", playerHealth);
-        playerlifeValue.textContent = Math.floor(playerHealth);
-      } else {
-        return;
-      }
-    } else if (d === 3) {
-      if (miss < 0.5) {
-        playerHealth -= computerDamage;
-        playerLifeBar.setAttribute("value", playerHealth);
-        playerlifeValue.textContent = Math.floor(playerHealth);
-      } else {
-        return;
+}
+function reloadPage() {
+  location.reload();
+}
+
+function gameEndWinner() {
+  sound = true;
+  battleMusic.pause();
+  victoryMusic.play();
+  ending.classList.toggle("hidden");
+  endingH2.textContent = "YOU WON! CLICK TO GO AGAIN!";
+  onLoad();
+  endingH2.addEventListener("click", reloadPage);
+}
+function gameEndLoser() {
+  sound = true;
+  battleMusic.pause();
+  lostMusic.play();
+  onLoad();
+  ending.classList.toggle("hidden");
+  endingH2.textContent = "YOU LOST! CLICK TO GO AGAIN!";
+  endingH2.addEventListener("click", reloadPage);
+}
+
+function speedCheckOne() {
+  contentSelectionAttack = false;
+  contentSelectionItem = false;
+  if (characterPicked.speed > cpuPick.speed) {
+    playerDoesDamageOne();
+    if (computerHealth <= 0) {
+      gameEndWinner();
+    } else {
+      computerDoesDamage();
+      if (playerHealth <= 0) {
+        gameEndLoser();
       }
     }
-  }
-  function reloadPage() {
-    location.reload();
-  }
-
-  function gameEndWinner() {
-    sound = true;
-    battleMusic.pause();
-    victoryMusic.play();
-    ending.classList.toggle("hidden");
-    endingH2.textContent = "YOU WON! CLICK TO GO AGAIN!";
-    onLoad();
-    endingH2.addEventListener("click", reloadPage);
-  }
-  function gameEndLoser() {
-    sound = true;
-    battleMusic.pause();
-    lostMusic.play();
-    onLoad();
-    ending.classList.toggle("hidden");
-    endingH2.textContent = "YOU LOST! CLICK TO GO AGAIN!";
-    endingH2.addEventListener("click", reloadPage);
-  }
-
-  function speedCheckOne() {
-    if (characterPicked.speed > cpuPick.speed) {
+  } else if (characterPicked.speed < cpuPick.speed) {
+    computerDoesDamage();
+    if (playerHealth <= 0) {
+      gameEndLoser();
+    } else {
+      playerDoesDamageOne();
+      if (computerHealth <= 0) {
+        gameEndWinner();
+      }
+    }
+  } else if (characterPicked.speed === cpuPick.speed) {
+    let j = Math.floor(Math.random);
+    if (j < 0.5) {
       playerDoesDamageOne();
       if (computerHealth <= 0) {
         gameEndWinner();
@@ -286,7 +307,7 @@ function playGame() {
           gameEndLoser();
         }
       }
-    } else if (characterPicked.speed < cpuPick.speed) {
+    } else if ((j) => 0.5) {
       computerDoesDamage();
       if (playerHealth <= 0) {
         gameEndLoser();
@@ -296,33 +317,35 @@ function playGame() {
           gameEndWinner();
         }
       }
-    } else if (characterPicked.speed === cpuPick.speed) {
-      let j = Math.floor(Math.random);
-      if (j < 0.5) {
-        playerDoesDamageOne();
-        if (computerHealth <= 0) {
-          gameEndWinner();
-        } else {
-          computerDoesDamage();
-          if (playerHealth <= 0) {
-            gameEndLoser();
-          }
-        }
-      } else if ((j) => 0.5) {
-        computerDoesDamage();
-        if (playerHealth <= 0) {
-          gameEndLoser();
-        } else {
-          playerDoesDamageOne();
-          if (computerHealth <= 0) {
-            gameEndWinner();
-          }
-        }
-      }
     }
   }
-  function speedCheckTwo() {
-    if (characterPicked.speed > cpuPick.speed) {
+}
+function speedCheckTwo() {
+  contentSelectionAttack = false;
+  contentSelectionItem = false;
+  if (characterPicked.speed > cpuPick.speed) {
+    playerDoesDamageTwo();
+    if (computerHealth <= 0) {
+      gameEndWinner();
+    } else {
+      computerDoesDamage();
+      if (playerHealth <= 0) {
+        gameEndLoser();
+      }
+    }
+  } else if (characterPicked.speed < cpuPick.speed) {
+    computerDoesDamage();
+    if (playerHealth <= 0) {
+      gameEndLoser();
+    } else {
+      playerDoesDamageTwo();
+      if (computerHealth <= 0) {
+        gameEndWinner();
+      }
+    }
+  } else if (characterPicked.speed === cpuPick.speed) {
+    let j = Math.floor(Math.random);
+    if (j < 0.5) {
       playerDoesDamageTwo();
       if (computerHealth <= 0) {
         gameEndWinner();
@@ -332,7 +355,7 @@ function playGame() {
           gameEndLoser();
         }
       }
-    } else if (characterPicked.speed < cpuPick.speed) {
+    } else if ((j) => 0.5) {
       computerDoesDamage();
       if (playerHealth <= 0) {
         gameEndLoser();
@@ -342,33 +365,36 @@ function playGame() {
           gameEndWinner();
         }
       }
-    } else if (characterPicked.speed === cpuPick.speed) {
-      let j = Math.floor(Math.random);
-      if (j < 0.5) {
-        playerDoesDamageTwo();
-        if (computerHealth <= 0) {
-          gameEndWinner();
-        } else {
-          computerDoesDamage();
-          if (playerHealth <= 0) {
-            gameEndLoser();
-          }
-        }
-      } else if ((j) => 0.5) {
-        computerDoesDamage();
-        if (playerHealth <= 0) {
-          gameEndLoser();
-        } else {
-          playerDoesDamageTwo();
-          if (computerHealth <= 0) {
-            gameEndWinner();
-          }
-        }
-      }
     }
   }
-  function speedCheckThree() {
-    if (characterPicked.speed > cpuPick.speed) {
+}
+function speedCheckThree() {
+  contentSelectionAttack = false;
+  contentSelectionItem = false;
+  if (characterPicked.speed > cpuPick.speed) {
+    playerDoesDamageThree();
+    if (computerHealth <= 0) {
+      gameEndWinner();
+    } else {
+      computerDoesDamage();
+      if (playerHealth <= 0) {
+        gameEndLoser();
+      }
+    }
+  } else if (characterPicked.speed < cpuPick.speed) {
+    computerDoesDamage();
+    if (playerHealth <= 0) {
+      gameEndLoser();
+    } else {
+      playerDoesDamageThree();
+      if (computerHealth <= 0) {
+        gameEndWinner();
+      }
+    }
+  } else if (characterPicked.speed === cpuPick.speed) {
+    let j = Math.floor(Math.random);
+
+    if (j < 0.5) {
       playerDoesDamageThree();
       if (computerHealth <= 0) {
         gameEndWinner();
@@ -378,7 +404,7 @@ function playGame() {
           gameEndLoser();
         }
       }
-    } else if (characterPicked.speed < cpuPick.speed) {
+    } else if ((j) => 0.5) {
       computerDoesDamage();
       if (playerHealth <= 0) {
         gameEndLoser();
@@ -388,34 +414,35 @@ function playGame() {
           gameEndWinner();
         }
       }
-    } else if (characterPicked.speed === cpuPick.speed) {
-      let j = Math.floor(Math.random);
-
-      if (j < 0.5) {
-        playerDoesDamageThree();
-        if (computerHealth <= 0) {
-          gameEndWinner();
-        } else {
-          computerDoesDamage();
-          if (playerHealth <= 0) {
-            gameEndLoser();
-          }
-        }
-      } else if ((j) => 0.5) {
-        computerDoesDamage();
-        if (playerHealth <= 0) {
-          gameEndLoser();
-        } else {
-          playerDoesDamageThree();
-          if (computerHealth <= 0) {
-            gameEndWinner();
-          }
-        }
-      }
     }
   }
-  function speedCheckFour() {
-    if (characterPicked.speed > cpuPick.speed) {
+}
+function speedCheckFour() {
+  contentSelectionAttack = false;
+  contentSelectionItem = false;
+  if (characterPicked.speed > cpuPick.speed) {
+    playerDoesDamageFour();
+    if (computerHealth <= 0) {
+      gameEndWinner();
+    } else {
+      computerDoesDamage();
+      if (playerHealth <= 0) {
+        gameEndLoser();
+      }
+    }
+  } else if (characterPicked.speed < cpuPick.speed) {
+    computerDoesDamage();
+    if (playerHealth <= 0) {
+      gameEndLoser();
+    } else {
+      playerDoesDamageFour();
+      if (computerHealth <= 0) {
+        gameEndWinner();
+      }
+    }
+  } else if (characterPicked.speed === cpuPick.speed) {
+    let j = Math.floor(Math.random);
+    if (j < 0.5) {
       playerDoesDamageFour();
       if (computerHealth <= 0) {
         gameEndWinner();
@@ -425,7 +452,7 @@ function playGame() {
           gameEndLoser();
         }
       }
-    } else if (characterPicked.speed < cpuPick.speed) {
+    } else if ((j) => 0.5) {
       computerDoesDamage();
       if (playerHealth <= 0) {
         gameEndLoser();
@@ -435,69 +462,83 @@ function playGame() {
           gameEndWinner();
         }
       }
-    } else if (characterPicked.speed === cpuPick.speed) {
-      let j = Math.floor(Math.random);
-      if (j < 0.5) {
-        playerDoesDamageFour();
-        if (computerHealth <= 0) {
-          gameEndWinner();
-        } else {
-          computerDoesDamage();
-          if (playerHealth <= 0) {
-            gameEndLoser();
-          }
-        }
-      } else if ((j) => 0.5) {
-        computerDoesDamage();
-        if (playerHealth <= 0) {
-          gameEndLoser();
-        } else {
-          playerDoesDamageFour();
-          if (computerHealth <= 0) {
-            gameEndWinner();
-          }
-        }
-      }
     }
   }
+}
 
-  attackMoves[0].addEventListener("click", speedCheckOne);
-  attackMoves[1].addEventListener("click", speedCheckTwo);
-  attackMoves[2].addEventListener("click", speedCheckThree);
-  attackMoves[3].addEventListener("click", speedCheckFour);
+attackMoves[0].addEventListener("click", speedCheckOne);
+attackMoves[1].addEventListener("click", speedCheckTwo);
+attackMoves[2].addEventListener("click", speedCheckThree);
+attackMoves[3].addEventListener("click", speedCheckFour);
 
-  function itemOne() {
-    playerHealth += 12;
-    itemChoice.classList.toggle("hidden");
-    outcome.textContent = "You healed 12 Hp!";
-    computerDoesDamage();
-  }
-  function itemTwo() {
-    characterPicked.speed += 0.2;
-    outcome.textContent =
-      "You put on your running boots and gained some speed!";
-    itemChoice.classList.toggle("hidden");
+function itemOne() {
+  playerHealth += 12;
+  itemChoice.classList.toggle("hidden");
+  outcome.textContent = "You healed 12 Hp!";
+  computerDoesDamage();
+}
+function itemTwo() {
+  characterPicked.speed += 0.2;
+  outcome.textContent = "You put on your running boots and gained some speed!";
+  itemChoice.classList.toggle("hidden");
 
-    computerDoesDamage();
-  }
-  function itemThree() {
-    characterPicked.defence += 0.2;
-    outcome.textContent = "You polished your shield and gained more defence!";
-    itemChoice.classList.toggle("hidden");
-    computerDoesDamage();
-  }
+  computerDoesDamage();
+}
+function itemThree() {
+  characterPicked.defence += 0.2;
+  outcome.textContent = "You polished your shield and gained more defence!";
+  itemChoice.classList.toggle("hidden");
+  computerDoesDamage();
+}
 
-  function itemFour() {
-    characterPicked.attack += 0.2;
-    outcome.textContent = "You sharpened your claws and got stronger!";
-    itemChoice.classList.toggle("hidden");
-    computerDoesDamage();
-  }
+function itemFour() {
+  characterPicked.attack += 0.2;
+  outcome.textContent = "You sharpened your claws and got stronger!";
+  itemChoice.classList.toggle("hidden");
+  computerDoesDamage();
+}
 
-  itemChoices[0].addEventListener("click", itemOne);
-  itemChoices[1].addEventListener("click", itemTwo);
-  itemChoices[2].addEventListener("click", itemThree);
-  itemChoices[3].addEventListener("click", itemFour);
+itemChoices[0].addEventListener("click", itemOne);
+itemChoices[1].addEventListener("click", itemTwo);
+itemChoices[2].addEventListener("click", itemThree);
+itemChoices[3].addEventListener("click", itemFour);
+
+console.log(attackMoves[0]);
+function dogSelected() {
+  characterPicked = dog;
+  console.log(characterPicked);
+  attackMoves[0].textContent = "Bite";
+  attackMoves[1].textContent = "Dig";
+  attackMoves[2].textContent = "Roll";
+  attackMoves[3].textContent = "Lick";
+  playGame();
+}
+function catSelected() {
+  characterPicked = cat;
+  console.log(characterPicked);
+  attackMoves[0].textContent = "Bite";
+  attackMoves[1].textContent = "Scratch";
+  attackMoves[2].textContent = "Catch";
+  attackMoves[3].textContent = "Purr";
+  playGame();
+}
+function snakeSelected() {
+  characterPicked = snake;
+  console.log(characterPicked);
+  attackMoves[0].textContent = "Bite";
+  attackMoves[1].textContent = "Venom";
+  attackMoves[2].textContent = "Coil";
+  attackMoves[3].textContent = "Fangs";
+  playGame();
+}
+function turtleSelected() {
+  characterPicked = turtle;
+  console.log(characterPicked);
+  attackMoves[0].textContent = "Bite";
+  attackMoves[1].textContent = "Shell Smash";
+  attackMoves[2].textContent = "HeadButt";
+  attackMoves[3].textContent = "Rapid Spin";
+  playGame();
 }
 
 characterListArray = ["noHover", "noHover", "noHover", "noHover"];
@@ -605,17 +646,18 @@ function handleEnter() {
     contentSelectionItem === false &&
     contentSelectionAttack === true
   ) {
-    if (attackMoves[0].classList.contains("move")) {
+    if (attackMoves[0].classList.contains("moveHover")) {
       speedCheckOne();
-    } else if (attackMoves[1].classList.contains("move")) {
+    } else if (attackMoves[1].classList.contains("moveHover")) {
       speedCheckTwo();
-    } else if (attackMoves[2].classList.contains("move")) {
+    } else if (attackMoves[2].classList.contains("moveHover")) {
       speedCheckThree();
-    } else if (attackMoves[3].classList.contains("move")) {
+    } else if (attackMoves[3].classList.contains("moveHover")) {
       speedCheckFour();
     }
   }
 }
+
 //itemChoices
 //attackMoves
 
@@ -643,40 +685,3 @@ grid[0].addEventListener("click", dogSelected);
 grid[1].addEventListener("click", catSelected);
 grid[2].addEventListener("click", snakeSelected);
 grid[3].addEventListener("click", turtleSelected);
-
-function dogSelected() {
-  characterPicked = dog;
-  console.log(characterPicked);
-  attackMoves[0].textContent = "Bite";
-  attackMoves[1].textContent = "Dig";
-  attackMoves[2].textContent = "Roll";
-  attackMoves[3].textContent = "Lick";
-  playGame();
-}
-function catSelected() {
-  characterPicked = cat;
-  console.log(characterPicked);
-  attackMoves[0].textContent = "Bite";
-  attackMoves[1].textContent = "Scratch";
-  attackMoves[2].textContent = "Catch";
-  attackMoves[3].textContent = "Purr";
-  playGame();
-}
-function snakeSelected() {
-  characterPicked = snake;
-  console.log(characterPicked);
-  attackMoves[0].textContent = "Bite";
-  attackMoves[1].textContent = "Venom";
-  attackMoves[2].textContent = "Coil";
-  attackMoves[3].textContent = "Fangs";
-  playGame();
-}
-function turtleSelected() {
-  characterPicked = turtle;
-  console.log(characterPicked);
-  attackMoves[0].textContent = "Bite";
-  attackMoves[1].textContent = "Shell Smash";
-  attackMoves[2].textContent = "HeadButt";
-  attackMoves[3].textContent = "Rapid Spin";
-  playGame();
-}
