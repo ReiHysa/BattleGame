@@ -1,4 +1,4 @@
-battleDecisions = document.querySelectorAll(".choice li");
+const battleDecisions = document.querySelectorAll(".choice li");
 
 BDArray = ["no", "no"];
 //mainList
@@ -51,7 +51,7 @@ const handleArrowDown = () => {
     contentSelectionItem === false
   ) {
     const cursorIsOnBottom = (cursorIndex) => cursorIndex === 0;
-    tryMoveCursor(1, cursorIsOnBottm);
+    tryMoveCursor(1, cursorIsOnBottom);
   } else if (
     screenThree === true &&
     contentSelectionAttack === true &&

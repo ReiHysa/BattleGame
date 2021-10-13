@@ -185,7 +185,7 @@ function characterInDisplay() {
       chosenCharacter.classList.remove("character-option-snake");
     }
     chosenCharacter.classList.add("character-option-dog");
-    chosenCharacterText.textContent = "Dog";
+    chosenCharacterText.textContent = "Water Dog";
   } else if (grid[1].classList.contains("hover")) {
     if (chosenCharacter.classList.contains("character-option-dog")) {
       chosenCharacter.classList.remove("character-option-dog");
@@ -195,7 +195,7 @@ function characterInDisplay() {
       chosenCharacter.classList.remove("character-option-snake");
     }
     chosenCharacter.classList.add("character-option-cat");
-    chosenCharacterText.textContent = "Cat";
+    chosenCharacterText.textContent = "Flaming Cat";
   } else if (grid[2].classList.contains("hover")) {
     if (chosenCharacter.classList.contains("character-option-dog")) {
       chosenCharacter.classList.remove("character-option-dog");
@@ -205,7 +205,7 @@ function characterInDisplay() {
       chosenCharacter.classList.remove("character-option-cat");
     }
     chosenCharacter.classList.add("character-option-snake");
-    chosenCharacterText.textContent = "Snake";
+    chosenCharacterText.textContent = "Venomous Snake";
   } else if (grid[3].classList.contains("hover")) {
     if (chosenCharacter.classList.contains("character-option-dog")) {
       chosenCharacter.classList.remove("character-option-dog");
@@ -215,7 +215,7 @@ function characterInDisplay() {
       chosenCharacter.classList.remove("character-option-snake");
     }
     chosenCharacter.classList.add("character-option-turtle");
-    chosenCharacterText.textContent = "Turtle";
+    chosenCharacterText.textContent = "Lazy Turtle";
   }
 }
 
@@ -235,7 +235,7 @@ function onLoad() {
   }
 }
 
-window.addEventListener("load", onLoad);
+window.addEventListener("click", onLoad);
 
 startGame.addEventListener("click", characterSelectScreen);
 howToPlay.addEventListener("click", howToFunction);

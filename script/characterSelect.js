@@ -26,7 +26,7 @@ function dogHover() {
     chosenCharacter.classList.remove("character-option-snake");
   }
   chosenCharacter.classList.add("character-option-dog");
-  chosenCharacterText.textContent = "Dog";
+  chosenCharacterText.textContent = "Water Dog";
 }
 function dogHoverNo() {
   arrow[0].classList.toggle("opacity");
@@ -41,7 +41,7 @@ function catHover() {
     chosenCharacter.classList.remove("character-option-snake");
   }
   chosenCharacter.classList.add("character-option-cat");
-  chosenCharacterText.textContent = "Cat";
+  chosenCharacterText.textContent = "Flaming Cat";
 }
 function catHoverNo() {
   arrow[1].classList.toggle("opacity");
@@ -56,7 +56,7 @@ function turtleHover() {
     chosenCharacter.classList.remove("character-option-snake");
   }
   chosenCharacter.classList.add("character-option-turtle");
-  chosenCharacterText.textContent = "Turtle";
+  chosenCharacterText.textContent = "Lazy Turtle";
 }
 function turtleHoverNo() {
   arrow[3].classList.toggle("opacity");
@@ -71,7 +71,7 @@ function snakeHover() {
     chosenCharacter.classList.remove("character-option-cat");
   }
   chosenCharacter.classList.add("character-option-snake");
-  chosenCharacterText.textContent = "Snake";
+  chosenCharacterText.textContent = "Vanomous Snake";
 }
 function snakeHoverNo() {
   arrow[2].classList.toggle("opacity");
@@ -110,37 +110,37 @@ function playGame() {
     cpuPick = dog;
     console.log(cpuPick);
     computerModel.classList.add("character-option-dog");
-    computerName.textContent;
+    computerName.textContent = "Water Dog";
   } else if (i === 1) {
     cpuPick = cat;
     console.log(cpuPick);
     computerModel.classList.add("character-option-cat");
-    computerName.textContent = "cat";
+    computerName.textContent = "Flaming Cat";
   } else if (i === 2) {
     cpuPick = snake;
     console.log(cpuPick);
     computerModel.classList.add("character-option-snake");
-    computerName.textContent = "snake";
+    computerName.textContent = "Venomous Snake";
   } else if (i == 3) {
     cpuPick = turtle;
     console.log(cpuPick);
     computerModel.classList.add("character-option-turtle");
-    computerName.textContent = "turtle";
+    computerName.textContent = "Lazy Turtle";
   }
   characterSelectionScreen.classList.add("hidden");
   battleScreen.classList.remove("hidden");
   if (characterPicked === dog) {
     playerModel.classList.add("character-option-dog");
-    characterName.textContent = "dog";
+    characterName.textContent = "Water Dog";
   } else if (characterPicked === cat) {
     playerModel.classList.add("character-option-cat");
-    characterName.textContent = "cat";
+    characterName.textContent = "Flaming Cat";
   } else if (characterPicked === snake) {
     playerModel.classList.add("character-option-snake");
-    characterName.textContent = "snake";
+    characterName.textContent = "Venomous Snake";
   } else if (characterPicked === turtle) {
     playerModel.classList.add("character-option-turtle");
-    characterName.textContent = "turtle";
+    characterName.textContent = "Lazy Turtle";
   }
   function playerDoesDamageOne() {
     let playerdamage =
