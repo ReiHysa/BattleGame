@@ -166,3 +166,10 @@ added attack moves and items hidden effect
 added character model to battle arena
 
 tuesday:
+
+buttons for first and second page.
+
+wendesday:
+
+buttons for final gameplay
+audio files fully integrated.
