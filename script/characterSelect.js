@@ -252,10 +252,10 @@ function gameEndWinner() {
 }
 function gameEndLoser() {
   sound = true;
-  ending.classList.toggle("hidden");
-  endingH2.textContent = "YOU LOST! CLICK TO GO AGAIN!";
   battleMusic.pause();
   lostMusic.play();
+  ending.classList.toggle("hidden");
+  endingH2.textContent = "YOU LOST! CLICK TO GO AGAIN!";
   onLoad();
   endingH2.addEventListener("click", reloadPage);
   playerHealth = 0;
