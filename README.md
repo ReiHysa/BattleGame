@@ -157,13 +157,33 @@ I added these functions for every type of class which would replace the content 
 
 monday:
 
-added probability
-added damage being taken and given
-added a winner and loser
-added potions being in effect
-added menu indentation
-added attack moves and items hidden effect
-added character model to battle arena
+I wanted to make sure that all the attacks had a probability on missing depending on the amount of damage a move does. This means that just doing the move that does the most damage is not always beneficial as it could mean you miss more of your attacks. The code used for this was:
+
+    function playerDoesDamageFour() {
+    let playerdamage = (baseDamage[3] * characterPicked.attack) / cpuPick.defence;
+    miss = Math.random();
+    if (miss < 0.5) {
+        computerHealth -= playerdamage;
+        computerLifeBar.setAttribute("value", computerHealth);
+        computerlifeValue.textContent = Math.floor(computerHealth);
+        outcome.textContent = `You landed your move and did ${Math.floor(
+        playerdamage
+        )} damage`;
+        attackChoice.classList.toggle("hidden");
+    } else {
+        outcome.textContent = `Your move was dodged as you miss your mark!`;
+        attackChoice.classList.toggle("hidden");
+        return;
+    }
+    }
+
+This specific code ensures that the probability is done before the player takes damage through Math.random().
+
+To ensure that there is a winner and loser, I added a new hidden element which is no longer hidden when it appears which has its text chaneged to either 'You have won' or 'You have lost'. One of the outcomes needed to have a winner or a loser.
+
+Following from this, I also added the use of clicking and activating potions with different effects such as health, speed, attack, defence. This was relatively easy to do, I just added event listeners for each of the options which in turn is related to a function that applies the relevant effects to the users character.
+
+Finally, using the relevant classes, I established which character model was displayed by using if statements which in turn will apply the relevent class to the character display section.
 
 tuesday:
 
@@ -173,3 +193,7 @@ wendesday:
 
 buttons for final gameplay
 audio files fully integrated.
+
+Thursday:
+Reformatting of some code
+fixing/updating images and styling
