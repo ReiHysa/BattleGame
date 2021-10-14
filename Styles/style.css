@@ -368,5 +368,6 @@ section.hidden {
     background-image: url(../Images/gamebot.png);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 1000px;
   }
 }

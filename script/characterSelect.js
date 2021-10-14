@@ -104,25 +104,20 @@ const turtle = new Pet(1.1, 2.2, 100, 1);
 
 function playGame() {
   let i = Math.floor(Math.random() * grid.length);
-  console.log(i);
   if (i === 0) {
     cpuPick = dog;
-    console.log(cpuPick);
     computerModel.classList.add("character-option-dog");
     computerName.textContent = "Water Dog";
   } else if (i === 1) {
     cpuPick = cat;
-    console.log(cpuPick);
     computerModel.classList.add("character-option-cat");
     computerName.textContent = "Flaming Cat";
   } else if (i === 2) {
     cpuPick = snake;
-    console.log(cpuPick);
     computerModel.classList.add("character-option-snake");
     computerName.textContent = "Venomous Snake";
   } else if (i == 3) {
     cpuPick = turtle;
-    console.log(cpuPick);
     computerModel.classList.add("character-option-turtle");
     computerName.textContent = "Lazy Turtle";
   }
@@ -510,10 +505,8 @@ itemChoices[1].addEventListener("click", itemTwo);
 itemChoices[2].addEventListener("click", itemThree);
 itemChoices[3].addEventListener("click", itemFour);
 
-console.log(attackMoves[0]);
 function dogSelected() {
   characterPicked = dog;
-  console.log(characterPicked);
   attackMoves[0].textContent = "Bite";
   attackMoves[1].textContent = "Dig";
   attackMoves[2].textContent = "Roll";
@@ -522,7 +515,6 @@ function dogSelected() {
 }
 function catSelected() {
   characterPicked = cat;
-  console.log(characterPicked);
   attackMoves[0].textContent = "Bite";
   attackMoves[1].textContent = "Scratch";
   attackMoves[2].textContent = "Catch";
@@ -531,7 +523,6 @@ function catSelected() {
 }
 function snakeSelected() {
   characterPicked = snake;
-  console.log(characterPicked);
   attackMoves[0].textContent = "Bite";
   attackMoves[1].textContent = "Venom";
   attackMoves[2].textContent = "Coil";
@@ -540,7 +531,6 @@ function snakeSelected() {
 }
 function turtleSelected() {
   characterPicked = turtle;
-  console.log(characterPicked);
   attackMoves[0].textContent = "Bite";
   attackMoves[1].textContent = "Shell Smash";
   attackMoves[2].textContent = "HeadButt";
