@@ -187,13 +187,20 @@ Finally, using the relevant classes, I established which character model was dis
 
 tuesday:
 
-buttons for first and second page.
+The main aim for tuesday was to get the arrow keys and enter working on both the first and second page. I did this by using arrays and class establishment to assign when a class is active and when it is not. The enter key works in the format that if the class contains the active class then it will change the screen page. This then allowed me to add if statements on when the code is orginally running and when it is not.
+I struggled in adding the functionality in the final page due to their being both a list and paragraph elements which are seperated. My ideas behind fixing this is adding true and false statements which means when one is active the other cannot move. Also having more values that take into account which page/ section we are on.
 
 wendesday:
+
+I managed to get the final game fully working with the keyboard arrows and integrated audio files depending on if you lost or win, what game state you are in such as character select screen or battle mode etc.
 
 buttons for final gameplay
 audio files fully integrated.
 
 Thursday:
-Reformatting of some code
-fixing/updating images and styling
+
+For the final day I reformatted some of my code to make it a bit more readable and funactionable. I also altered some of my images and pictures to better suit the game. The main focus of this was the background which had a gamboy behind it. Originally it was not in shape, and with a few alterations to the height, the image was changed to better suit the display.
+
+WWW/EBI:
+
+If I could alter/ redo this project again I would change how I have written my current coded. Due to the current structure of it I would need to reformat much of the work to make it functionable again. I repeated lots of code to do lots of small changes when in reality it most likely could jave all been done within the same function. This was a great stepping stone in teaching me in creating more simplified code for future reference as changes that need to be made would be done much more simply. All in all, I felt like I came a long way in learning and producing my code. As my first solo project in general assembly I am delighted by my final outcome despite the flaws that the code may have. Each project I consider a learning code for future reference and this project has without a doubt reassured me that I can perservere within my code and create a final product which I had orginally envisioned!

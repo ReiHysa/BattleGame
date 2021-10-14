@@ -676,9 +676,6 @@ function handleEnter() {
   }
 }
 
-//itemChoices
-//attackMoves
-
 document.addEventListener("keydown", function (event) {
   switch (event.key) {
     case "ArrowRight":
