@@ -1,15 +1,3 @@
-const chosenCharacter = document.querySelector(".chosenCharacter");
-const chosenCharacterText = document.querySelector(".chosenCharacter p");
-const grid = document.querySelectorAll(".grid div");
-const arrow = document.querySelectorAll("aside");
-const battleScreen = document.querySelector(".battle");
-const playerModel = document.querySelector(".character-model");
-const computerModel = document.querySelector(".cpu-model");
-const characterName = document.querySelector(".characterName");
-const computerName = document.querySelector(".CpuName");
-
-const baseDamage = [10, 13, 12, 20];
-
 let playerHealth = 100;
 playerLifeBar.setAttribute("value", playerHealth);
 let computerHealth = 100;

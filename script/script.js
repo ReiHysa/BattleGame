@@ -22,6 +22,17 @@ const mainList = document.querySelectorAll(".main-menu li");
 const outcome = document.querySelector(".decisions h3");
 const battleDecisions = document.querySelectorAll(".choice li");
 const attackMoves = document.querySelectorAll(".attack-content p");
+const chosenCharacter = document.querySelector(".chosenCharacter");
+const chosenCharacterText = document.querySelector(".chosenCharacter p");
+const grid = document.querySelectorAll(".grid div");
+const arrow = document.querySelectorAll("aside");
+const battleScreen = document.querySelector(".battle");
+const playerModel = document.querySelector(".character-model");
+const computerModel = document.querySelector(".cpu-model");
+const characterName = document.querySelector(".characterName");
+const computerName = document.querySelector(".CpuName");
+
+const baseDamage = [10, 13, 12, 20];
 
 let screenOne = true;
 let screenTwo = false;
