@@ -231,9 +231,6 @@ function computerDoesDamage() {
       return;
     }
   }
-  if (playerHealth <= 0) {
-    gameEndLoser();
-  }
 }
 function reloadPage() {
   location.reload();
